@@ -1,16 +1,14 @@
 # Label Starter App
 
-Boilerplate build tool for web apps at Label Interactive, based heavily on the [Yeoman](http://yeoman.io/) [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp).
+Boilerplate build tool for web apps at Label Interactive, based on [`gulp-starter`](https://github.com/greypants/gulp-starter).
 
 ## Dependencies
 
  - [Homebrew](http://brew.sh)
  - [Node](http://nodejs.org/)
- - [Bower](http://bower.io/)
- - [Ruby 2.0+](http://ruby-lang.org)
  - [Gulp](http://gulpjs.com/)
 
-*See `gulpfile.js` and `bower.json` for a full list of plugins and 3rd party libraries.*
+*See `package.json` for a full list of plugins and 3rd party libraries.*
 
 ## Installation
 
