@@ -1,0 +1,41 @@
+#!/bin/bash
+
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
+
+
+
+echo ""
+echo -e " Working Directory:\033[1;32m $(pwd) \033[0m"
+echo ""
+
+if ! which "brew" > /dev/null; then
+  echo "Homebrew not found."
+  echo ""
+  echo "Please see http://brew.sh/ for install instructions."
+
+  exit 0;
+fi
+
+if ! which "npm" > /dev/null; then
+  echo "Installing Node.js"
+
+  brew install nodejs
+fi
+
+if ! which "gulp" > /dev/null; then
+  echo "Installing gulp (system-wide)"
+
+  npm install -g gulp
+fi
+
+
+
+echo "Pulling in latest dependencies (system-wide)"
+
+npm install
+
+echo ""
+echo -e " All Set:\033[1;32m Dependencies are up to date! \033[0m"
+echo ""
+
+gulp

@@ -1,0 +1,11 @@
+#!/bin/bash
+# @link https://gist.github.com/JeffreyWay/1525217/#comment-72260
+
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
+
+port=${1:-8000}
+router=../lib/router.php
+
+cd public
+
+open "http://localhost:${port}" && php -Slocalhost:${port} ${router}

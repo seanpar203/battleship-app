@@ -1,0 +1,25 @@
+// Local & 3rd Party Includes
+//
+// -----------------------------------------------------------------------------
+@import "_variables";
+@import "_vendor";
+@import "_mixins";
+
+
+
+// Application styles
+//
+// -----------------------------------------------------------------------------
+
+body {
+  background: url('fabric_plaid.png');
+}
+
+h2 {
+  border-bottom: 1px dashed #BFBFBF;
+}
+
+blockquote {
+  background-color: rgba(white, .4);
+  border-left: 3px solid white;
+}
