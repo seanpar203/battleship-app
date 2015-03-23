@@ -43,7 +43,7 @@ Running `./bin/serve` will run a local web server on port `8000`. To use a diffe
 
 ## Changelog
 
-#### 0.5.0
+#### 0.5.0 - March 23, 2015
 
  - Full rewrite of gulp tasks, now based off of [`gulp-starter`](https://github.com/greypants/gulp-starter).
  - Integration with Babel.js, supporting ES6.
