@@ -6,7 +6,6 @@ var argv      = require('yargs').argv;
 var revNapkin = require('gulp-rev-napkin');
 
 gulp.task('revall', function() {
-  console.log(argv);
   return gulp.src(config.src)
     .pipe(revall())
     .pipe(gulpIf(argv.rename, gulp.dest(config.dest))) // rename the files for rename flag
