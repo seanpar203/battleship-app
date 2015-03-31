@@ -1,6 +1,6 @@
 {
   "name": "label-starter-app",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "HTML5 App Boilerplate",
   "main": "gulpfile.js",
   "repository": {
