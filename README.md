@@ -20,9 +20,15 @@ Boilerplate build tool for web apps at Label Interactive, based on [`gulp-starte
 
 > **Note:** The `install-deps` script will install Node.js and Gulp if they are not already available. It does this via [Homebrew](http://brew.sh/). This script can be run anytime to pull in changes in `package.json`.
 
-### Gulp
+## Configuration
 
-Run `gulp` once from the project root to build the project and start the watcher. The `public/` directory will be updated with the latest compiled version of the site. Browser-sync will open a tab pointing at `public/` and update individual assets whenever they are recompiled.
+The `gulp/config.js` file contains project-specific configuration for all tasks. The `src` and `dest` variables at the top of the file can be used to customize the prefix for the source and build directories.
+
+## Gulp
+
+Run `gulp`  from the project root to build the project and start [Browser Sync](http://www.browsersync.io/). The `public/` directory will be updated with the latest compiled version of the site. BrowserSync will open a tab pointing at `public/` and update individual assets whenever they are recompiled.
+
+To run the build and watcher without BrowserSync, run `gulp watch`.
 
 Running `gulp production` will build the project for production use.
 In addition to the normal compilation of asset, the production build wil
@@ -33,13 +39,22 @@ In addition to the normal compilation of asset, the production build wil
 A `--rename` flag can be included to rename the files on the filesystem with the cache tokens. This is useful in environments that Apache's `mod_rewrite` is not enabled.
 
 > Without `--rename`, an `.htaccess` file will be set in the `public/` directory to transform requests for assets that include a cache token in the filename back to the real file on the filesystem which does not include the cache token. With the `--rename` option in place, this is not necessary.
-### Web Server
+
+## Web Server
 
 Running `./bin/serve` will run a local web server on port `8000`. To use a different port, specify it as the first argument. The web server is useful to view the website locally, particularly when cache-busting tokens are being injected in asset URLs.
 
 > **Note:** It's a good idea to append `./bin` to your `$PATH`. Instead of typing `./bin/serve 8084`, you could type `serve 8084`.
 
 ## Changelog
+
+#### 0.5.2 - March 31, 2015
+
+ - `gulp watch` can now be run without starting BrowserSync. `gulp` now uses the new `live-update` task to start both the watcher and BrowswerSync.
+
+#### 0.5.1 - March 31, 2015
+
+ - `gulp-rev-all` has been bumped to `0.8.11` and now includes the needed `dontRenameFile` option, suggested [here](https://github.com/smysnk/gulp-rev-all/pull/75).
 
 #### 0.5.0 - March 23, 2015
 
