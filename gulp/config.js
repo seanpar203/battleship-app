@@ -107,10 +107,10 @@ module.exports = {
 
       options: {
 
-        ignore: [ '.html' ],
-        dontRename: [ '.*' ],
+        dontGlobal: [ '.html' ],
+        dontRenameFile: [ '.*' ],
         prefix: 'https://cdn.example.com/',
-        quiet: false,
+        debug: true,
         transformFilename: function (file, hash) {
           var ext = path.extname(file.path);
 

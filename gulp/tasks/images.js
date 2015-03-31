@@ -9,7 +9,7 @@ var gulpIf      = require('gulp-if');
 
 gulp.task('images', function() {
   return gulp.src(config.src, { base: 'app/assets/images' })
-    .pipe(gulpIf( ! _.includes(argv._, 'production'), changed(config.dest))) // Ignore unchanged files
+    //.pipe(gulpIf( ! _.includes(argv._, 'production'), changed(config.dest))) // Ignore unchanged files
     .pipe(imagemin(config)) // Optimize
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({ stream:true }));
