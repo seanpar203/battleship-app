@@ -1,6 +1,4 @@
 /* jshint camelcase: false */
-'use strict';
-
 var ValidatorJs = require('validator.js');
 var Validator   = ValidatorJs.Validator;
 var Assert      = ValidatorJs.Assert;
