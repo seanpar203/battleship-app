@@ -1,7 +1,8 @@
-module.exports = {
+module.exports = class {
 
-  initialize: function() {
+  constructor() {
     // page-specific code here
+    console.log('mm');
   }
 
 };

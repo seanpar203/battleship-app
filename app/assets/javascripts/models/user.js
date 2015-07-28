@@ -1,11 +1,9 @@
-/* jshint camelcase: false */
-var ValidatorJs = require('validator.js');
-var Validator   = ValidatorJs.Validator;
-var Assert      = ValidatorJs.Assert;
-var Backbone    = window.Backbone;
+/* eslint camelcase: 0, new-cap: 0 */
+import { Validator, Assert} from 'validator.js';
+import Backbone from 'backbone';
 
 
-var User = Backbone.Model.extend({
+module.exports = Backbone.Model.extend({
 
   constraints: {
     email:      [ new Assert().Required(), new Assert().Email() ],
@@ -13,18 +11,14 @@ var User = Backbone.Model.extend({
     last_name:  new Assert().Required()
   },
 
-  validate: function(attrs) {
+  validate(attrs) {
     var result = new Validator().validate(attrs, this.constraints);
 
     if (result === true) {
-      return;
+      return void(0);
     }
 
     return result;
   }
 
 });
-
-
-
-module.exports = User;
