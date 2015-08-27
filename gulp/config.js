@@ -88,7 +88,20 @@ module.exports = {
 
     src: [ src + '/assets/javascripts/**/*.js' ],
 
-    dest: dest + '/assets'
+    dest: dest + '/assets',
+
+    eslint: {
+      parser: 'babel-eslint',
+      ecmaFeatures: {
+        templateStrings: true,
+        modules: true,
+        destructuring: true,
+        restParams: true,
+        arrowFunctions: true,
+        classes: true,
+        defaultParams: true
+      }
+    }
 
   },
 

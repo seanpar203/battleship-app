@@ -2,7 +2,7 @@
 import './plugins';
 import $ from 'jquery';
 import _ from 'lodash';
-import FastClick from 'fastclick';
+import attachFastClick from 'fastclick';
 
 var modules = {
   'index': require('./pages/index')
@@ -37,13 +37,13 @@ $(function() {
   // run the page-specific module js
   var module = $('#page').data('module');
 
-  if (module && modules[module] && _.has(modules[module], 'initialize')) {
-    modules[module].initialize();
+  if (_.has(modules, module)) {
+    module = new modules[module]();
   }
 
 
 
   // Fastclick
-  FastClick(document.body);
+  attachFastClick(document.body);
 
 });

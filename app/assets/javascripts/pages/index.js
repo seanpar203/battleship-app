@@ -1,9 +1,8 @@
-'use strict';
+module.exports = class {
 
-module.exports = {
-
-  initialize: function() {
+  constructor() {
     // page-specific code here
+    console.log('mmm');
   }
 
 };
