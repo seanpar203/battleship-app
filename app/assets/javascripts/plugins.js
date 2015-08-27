@@ -1,5 +1,4 @@
-import Backbone from 'backbone';
+import Vue from 'vue';
 import $ from 'jquery';
-Backbone.$ = $;
 import 'bootstrap';
 import 'babel/polyfill';
