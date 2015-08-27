@@ -6,5 +6,5 @@ var config   = require('../config').js;
 gulp.task('lint-js', function () {
   return gulp.src(config.src)
     .pipe(jshint())
-    .pipe(jshint.reporter(reporter))
+    .pipe(jshint.reporter(reporter));
 });

@@ -17,7 +17,7 @@ gulp.task('fingerprint', function(){
     delete options.dontRenameFile;
   }
 
-  revAll = new RevAll(options)
+  revAll = new RevAll(options);
 
   return gulp.src(config.src, { base: config.dest })
     .pipe(revAll.revision())

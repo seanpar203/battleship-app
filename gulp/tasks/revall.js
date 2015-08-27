@@ -11,5 +11,5 @@ gulp.task('revall', function() {
     .pipe(gulpIf(argv.rename, gulp.dest(config.dest))) // rename the files for rename flag
     .pipe(gulpIf(argv.rename, revNapkin(config.napkin)))
     .pipe(revall.manifest({ fileName: '../manifest.json' }))
-    .pipe(gulp.dest(config.manifest.path))
+    .pipe(gulp.dest(config.manifest.path));
 });
