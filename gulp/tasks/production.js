@@ -1,10 +1,18 @@
-var gulp = require('gulp');
+var argv        = require('yargs').argv;
+var gulp        = require('gulp');
 var runSequence = require('run-sequence');
 
 gulp.task('production', function(cb) {
-  runSequence(
+  var sequence = [
     'clean',
-    [ 'markup', 'extras', 'images', 'minify-css', 'minify-js' ],
-    'fingerprint',
-  cb);
+    [ 'markup', 'extras', 'images', 'minify-css', 'minify-js' ]
+  ];
+
+  if (argv.revisioning !== false) {
+    sequence.push('fingerprint');
+  }
+
+  sequence.push(cb);
+
+  runSequence.apply(this, sequence);
 });
