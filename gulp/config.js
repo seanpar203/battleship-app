@@ -35,8 +35,6 @@ module.exports = {
       style: 'nested',
       precision: 3,
       includePaths: [].concat.apply([], [
-        require('node-bourbon').includePaths,
-        require('node-neat').includePaths,
         'node_modules/bootstrap-sass/assets/stylesheets'
       ])
 
