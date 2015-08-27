@@ -8,6 +8,7 @@ var handleErrors = require('../util/handle-errors');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
 var _            = require('lodash');
+var stringify    = require('stringify');
 
 var browserifyTask = function(devMode) {
 
@@ -22,7 +23,7 @@ var browserifyTask = function(devMode) {
       bundleConfig = _.omit(bundleConfig, ['external', 'require']);
     }
 
-    var b = browserify(bundleConfig);
+    var b = browserify(bundleConfig).transform(stringify([ '.hbs', '.tpl', '.mustache', '.html' ]));
 
     var bundle = function() {
       // Log when bundling starts
