@@ -5,6 +5,12 @@ var dest = './public';
 
 module.exports = {
 
+  clean: {
+
+    src: dest
+
+  },
+
   browserify: {
 
     bundleConfigs: [
