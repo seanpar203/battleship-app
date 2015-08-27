@@ -1,6 +1,4 @@
 /* global Modernizr: true, FastClick: true, _:true */
-'use strict';
-
 import './plugins';
 import $ from 'jquery';
 import _ from 'lodash';
