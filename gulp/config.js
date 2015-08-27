@@ -18,7 +18,7 @@ module.exports = {
       {
         entries: src + '/assets/javascripts/app.js',
         dest: dest + '/assets',
-        outputName: 'app.js'
+        outputName: 'app.js',
         paths: [ src + '/assets/javascripts',  src + '/templates' ]
       }
 
