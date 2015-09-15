@@ -22,16 +22,22 @@ Boilerplate build tool for web apps at Label Interactive, based on [`gulp-starte
 
 ## Configuration
 
-The `gulp/config.js` file contains project-specific configuration for all tasks. The `src` and `dest` variables at the top of the file can be used to customize the prefix for the source and build directories.
+The `gulpfile.js/config.js` file contains project-specific configuration for all tasks. The `src` and `dest` variables at the top of the file can be used to customize the prefix for the source and build directories project-wide.
 
 ## Gulp
 
+#### Browser Sync
+
 Run `gulp`  from the project root to build the project and start [Browser Sync](http://www.browsersync.io/). The `public/` directory will be updated with the latest compiled version of the site. BrowserSync will open a tab pointing at `public/` and update individual assets whenever they are recompiled.
+
+#### Vanilla Watch
 
 To run the build and watcher without BrowserSync, run `gulp watch`.
 
+#### Production Build
+
 Running `gulp production` will build the project for production use.
-In addition to the normal compilation of asset, the production build wil
+In addition to the normal compilation of asset, the production build will
 
  - Minify/compress CSS and JS files.
  - Inject a cache token *(for cache-busting)* to all asset references.
@@ -40,13 +46,19 @@ A `--rename` flag can be included to rename the files on the filesystem with the
 
 > Without `--rename`, an `.htaccess` file will be set in the `public/` directory to transform requests for assets that include a cache token in the filename back to the real file on the filesystem which does not include the cache token. With the `--rename` option in place, this is not necessary.
 
-## Web Server
-
-Running `./bin/serve` will run a local web server on port `8000`. To use a different port, specify it as the first argument. The web server is useful to view the website locally, particularly when cache-busting tokens are being injected in asset URLs.
-
-> **Note:** It's a good idea to append `./bin` to your `$PATH`. Instead of typing `./bin/serve 8084`, you could type `serve 8084`.
+A `rev-manifest.json` file is added to `public/` for use by frameworks asset helpers to map some helper like `<?= stylesheet_tag('app.css') ?>` to `"/assets/app--cd2ed.css"`.
 
 ## Changelog
+
+#### 1.0.0 - September 15, 2015
+
+ - Added `minify-html` task.
+ - Upgraded all dev dependencies.
+ - Now using Vue by default instead of Backbone.
+ - New ES6 with babel.js and eslint.
+ - Config cleaning, particularly for production.
+ - `gulp-rev-all` support has been upgraded.
+ - Browser Sync now does URL rewriting to serve production assets.
 
 #### 0.5.2 - March 31, 2015
 
