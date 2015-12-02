@@ -85,9 +85,9 @@
           "loose": [
             "es6.modules",
             "es6.classes"
-          ]
-        },
-        "ignore": "node_modules"
+          ],
+          "ignore": "node_modules"
+        }
       ],
       "browserify-swap",
       "browserify-shim"
