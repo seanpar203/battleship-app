@@ -3,9 +3,11 @@ import $ from 'jquery';
 import _ from 'lodash';
 import attachFastClick from 'fastclick';
 
-var modules = {
-  'index': require('./pages/index')
-};
+// include page module
+import index from './pages/index';
+
+// include the above page modules in this mapping
+var modules = { index };
 
 $(function() {
 

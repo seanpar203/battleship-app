@@ -4,3 +4,4 @@ app/storage/tmp
 app/storage/assets
 /npm-debug.log
 /public
+.idea
