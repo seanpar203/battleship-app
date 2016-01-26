@@ -8,7 +8,7 @@ gulp.task('production', function(cb) {
     [ 'minify-html', 'extras', 'images', 'minify-css', 'minify-js' ]
   ];
 
-  if (argv.revisioning !== false) {
+  if (argv.fingerprint === true) {
     sequence.push('fingerprint');
   }
 

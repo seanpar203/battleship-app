@@ -140,9 +140,10 @@ module.exports = {
     dest: dest,
 
     options: {
-      dontRenameFile: [ /\/\..*/, '.html' ],
-      prefix:         'https://cdn.example.com/',
-      debug:          true,
+      dontRenameFile:      [ /\/\..*/, '.html' ],
+      dontUpdateReference: [ '.html' ],
+      prefix:              'https://cdn.example.com/',
+      debug:               true,
       transformFilename(file, hash) {
         var ext = path.extname(file.path);
 

@@ -40,9 +40,12 @@ Running `gulp production` will build the project for production use.
 In addition to the normal compilation of asset, the production build will
 
  - Minify/compress CSS and JS files.
- - Inject a cache token *(for cache-busting)* to all asset references.
+ - *(Optionally)* inject a cache-busting token to all asset references.
+ - *(Optionally)* inject a cache-busting token to assets on disk.
 
-A `--rename` flag can be included to rename the files on the filesystem with the cache tokens. This is useful in environments that Apache's `mod_rewrite` is not enabled.
+A `--fingerprint` flag can be included to inject cache-busting tokens to asset references.
+
+A `--rename` flag can be included to rename the files on disk with the cache tokens. This is useful in environments where Apache's `mod_rewrite` is not enabled.
 
 > Without `--rename`, an `.htaccess` file will be set in the `public/` directory to transform requests for assets that include a cache token in the filename back to the real file on the filesystem which does not include the cache token. With the `--rename` option in place, this is not necessary.
 
