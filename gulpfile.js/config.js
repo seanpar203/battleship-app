@@ -39,6 +39,11 @@ module.exports = {
       ])
     },
 
+    minify: {
+      discardComments: { removeAll: true },
+      discardEmpty: true
+    },
+
     autoprefixer: {
       browsers: [ 'last 5 versions', 'Explorer >= 8' ]
     },
@@ -47,11 +52,6 @@ module.exports = {
 
       src:  dest + '/assets/*.css',
       dest: dest + '/assets',
-
-      minifycss: {
-        keepBreaks:    true,
-        compatibility: 'ie8'
-      },
 
     }
 
@@ -102,14 +102,14 @@ module.exports = {
       }
     },
 
+    uglify: {
+
+    },
+
     production: {
 
       src:  dest + '/assets/*.js',
       dest: dest + '/assets',
-
-      uglify: {
-
-      }
 
     }
 
@@ -121,14 +121,14 @@ module.exports = {
     src:   [ src + '/**/*.html', '!' + src + '/**/_*.html' ],
     dest:  dest,
 
+    htmlmin: {
+      collapseWhitespace: true
+    },
+
     production: {
 
       src:  dest + '/*.html',
       dest: dest,
-
-      htmlmin: {
-        collapseWhitespace: true
-      }
 
     }
 
