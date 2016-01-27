@@ -55,6 +55,7 @@
     "gulp-template": "^3.0.0",
     "gulp-uglify": "~1.5.1",
     "gulp-util": "^3.0.6",
+    "imagemin-pngquant": "^4.2.0",
     "lodash": "^4.0.0",
     "merge-stream": "^1.0.0",
     "pretty-hrtime": "^1.0.0",

@@ -77,9 +77,10 @@ module.exports = {
     dest: dest + '/assets',
 
     imagemin: {
-      optimizationLevel: 3,
+      optimizationLevel: 7,
       progressive:       true,
-      interlaced:        true
+      interlaced:        true,
+      multipass:         true
     }
 
   },
