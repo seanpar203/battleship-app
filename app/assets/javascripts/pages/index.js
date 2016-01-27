@@ -2,7 +2,7 @@ export default class {
 
   constructor() {
     // page-specific code here
-    console.log('mmm');
+    console.log('pages/index.js triggered');
   }
 
 };

@@ -7,20 +7,16 @@ import attachFastClick from 'fastclick';
 import index from './pages/index';
 
 // include the above page modules in this mapping
-var modules = { index };
+const modules = { index };
 
-$(function() {
-
+document.addEventListener('DOMContentLoaded', () => {
   // run the page-specific module js
-  var module = $('#page').data('module');
+  let module = $('#page').data('module');
 
   if (_.has(modules, module)) {
     module = new modules[module]();
   }
 
-
-
   // Fastclick
   attachFastClick(document.body);
-
 });
