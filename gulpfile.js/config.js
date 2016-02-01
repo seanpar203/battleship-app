@@ -40,7 +40,7 @@ module.exports = {
 
     minify: {
       discardComments: { removeAll: true },
-      discardEmpty: true
+      discardEmpty:    true
     },
 
     autoprefixer: {
