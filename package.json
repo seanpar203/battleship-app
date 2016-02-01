@@ -15,9 +15,9 @@
   "private": true,
   "author": "Jason Daly <jason@labelinteractive.com>",
   "devDependencies": {
-    "babel": "^6.1.18",
-    "babel-eslint": "^5.0.0-beta4",
-    "babel-plugin-lodash": "^2.0.1",
+    "babel": "^6.3.0",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-polyfill": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
     "browser-sync": "^2.9.3",
@@ -89,20 +89,21 @@
   },
   "browserify": {
     "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ],
-          "plugins": [
-            "lodash"
-          ],
-          "ignore": "node_modules"
-        }
-      ],
+      "babelify",
       "browserify-swap",
-      "browserify-shim"
+      "browserify-shim",
+      [
+        "stringify",
+        {
+          "extensions": [
+            ".hbs",
+            ".tpl",
+            ".mustache",
+            ".html"
+          ],
+          "minify": true
+        }
+      ]
     ]
   },
   "browserify-shim": {
