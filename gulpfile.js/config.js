@@ -118,8 +118,12 @@ module.exports = {
   html: {
 
     watch: src + '/**/*.html',
-    src:   [ src + '/**/*.html', '!' + src + '/**/_*.html' ],
-    dest:  dest,
+    src:   [
+      src + '/**/*.html',
+      '!' + src + '/**/_*.html',
+      '!' + src + '/templates/**/*'
+    ],
+    dest: dest,
 
     htmlmin: {
       collapseWhitespace: true
