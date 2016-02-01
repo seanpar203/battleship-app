@@ -51,6 +51,10 @@ A `--rename` flag can be included to rename the files on disk with the cache tok
 
 A `rev-manifest.json` file is added to `public/` for use by frameworks asset helpers to map some helper like `<?= stylesheet_tag('app.css') ?>` to `"/assets/app--cd2ed.css"`.
 
+## Testing
+
+Tests found in `tests/` are run through [Karma](https://github.com/karma-runner/karma) using [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/).
+
 ## Changelog
 
 #### 1.0.0 - September 15, 2015
