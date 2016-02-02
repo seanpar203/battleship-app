@@ -61,6 +61,10 @@ Integration tests in `tests/integration/` are run through [Nightwatch.js](http:/
 
 ## Changelog
 
+#### 1.1.0 - February 2, 2016
+
+ - Added integration and unit testing with Karma and Nightwatch.js.
+
 #### 1.0.0 - September 15, 2015
 
  - Added `minify-html` task.
