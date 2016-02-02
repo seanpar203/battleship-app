@@ -4,7 +4,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('production', function(cb) {
   var sequence = [
-    'karma',
+    'test',
     'clean',
     [ 'minify-html', 'extras', 'images', 'minify-css', 'minify-js' ]
   ];

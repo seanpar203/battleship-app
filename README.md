@@ -50,10 +50,14 @@ A `--rename` flag can be included to rename the files on disk with the cache tok
 > Without `--rename`, an `.htaccess` file will be set in the `public/` directory to transform requests for assets that include a cache token in the filename back to the real file on the filesystem which does not include the cache token. With the `--rename` option in place, this is not necessary.
 
 A `rev-manifest.json` file is added to `public/` for use by frameworks asset helpers to map some helper like `<?= stylesheet_tag('app.css') ?>` to `"/assets/app--cd2ed.css"`.
-
+d
 ## Testing
 
-Tests found in `tests/` are run through [Karma](https://github.com/karma-runner/karma) using [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/).
+Integration and unit tests go in the `tests/` directory.
+
+Unit tests in `tests/unit/` are run through [Karma](https://github.com/karma-runner/karma) using [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/). These can be run via `gulp karma`.
+
+Integration tests in `tests/integration/` are run through [Nightwatch.js](http://nightwatchjs.org/). These can be run via `gulp nightwatch`.
 
 ## Changelog
 
