@@ -1,3 +1,4 @@
-import $ from 'jquery';
-import 'bootstrap';
 import 'babel-polyfill';
+
+//import $ from 'jquery';
+//import 'bootstrap';

@@ -1,5 +1,4 @@
 import './plugins';
-import $ from 'jquery';
 import _ from 'lodash';
 import attachFastClick from 'fastclick';
 
@@ -11,7 +10,7 @@ const modules = { index };
 
 document.addEventListener('DOMContentLoaded', () => {
   // run the page-specific module js
-  let module = $('#page').data('module');
+  let module = document.querySelector('#page').dataset.module;
 
   if (_.has(modules, module)) {
     module = new modules[module]();
