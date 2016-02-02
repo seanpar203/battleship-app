@@ -12,11 +12,11 @@
 // -----------------------------------------------------------------------------
 
 body {
-  background: url('fabric_plaid.png');
+  background-image: linear-gradient(#EEE, #FFF 500px);
 }
 
 h2 {
-  border-bottom: 1px dashed #BFBFBF;
+  border-bottom: 2px solid #EEE;
 }
 
 blockquote {
