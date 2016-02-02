@@ -1,7 +1,7 @@
 var selenium = require('selenium-server');
 
 module.exports = {
-  'src_folders':            [ './test/integration', './test/unit' ],
+  'src_folders':            [ './test/integration' ],
   'output_folder':          'reports',
   'custom_commands_path':   '',
   'custom_assertions_path': '',
@@ -34,7 +34,7 @@ module.exports = {
         'javascriptEnabled': true,
         'acceptSslCerts':    true
       },
-      'exclude': './test/unit/*'
+      'exclude': ''
     }
   }
 };
