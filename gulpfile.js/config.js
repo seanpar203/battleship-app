@@ -143,10 +143,6 @@ module.exports = {
       }
     },
 
-    uglify: {
-
-    },
-
     test: {
 
       karma: {
