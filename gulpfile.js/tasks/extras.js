@@ -1,16 +1,21 @@
-var gulp   = require('gulp');
-var config = require('../config').extras;
-var argv   = require('yargs').argv;
-var _      = require('lodash');
+var gulp    = require('gulp');
+var config  = require('../config').extras;
+var changed = require('gulp-changed');
+var argv    = require('yargs').argv;
+var _       = require('lodash');
+var merge   = require('merge-stream');
 
 gulp.task('extras', function() {
-  var src = _.toArray(config.src);
+  var tasks = config.mapping.map(function(mapping){
+    // If renaming is happening, don't include the .htaccess
+    if (argv.rename) {
+      _(mapping.src).reject(function(mask) { return _.includes(mask, '.htaccess'); });
+    }
 
-  // If renaming is happening, don't include the .htaccess
-  if (argv.rename) {
-    _(src).reject(function(mask) { return _.includes(mask, '.htaccess'); });
-  }
+    return gulp.src(mapping.src)
+      .pipe(changed(mapping.dest)) // Ignore unchanged files
+      .pipe(gulp.dest(mapping.dest));
+  });
 
-  return gulp.src(config.src)
-    .pipe(gulp.dest(config.dest));
+  return merge(tasks);
 });

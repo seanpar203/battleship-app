@@ -76,15 +76,16 @@ module.exports = {
 
   extras: {
 
-    src:  [ src + '/\.htaccess' ],
-    dest: dest
-
-  },
-
-  fonts: {
-
-    src:  src + '/assets/fonts/**/*.{woff,ttf,eot}',
-    dest: dest + '/assets'
+    mapping: [
+      {
+        src:  [ src + '/\.htaccess' ],
+        dest: dest
+      },
+      {
+        src:  src + '/assets/fonts/**/*.{woff,ttf,eot}',
+        dest: dest + '/assets'
+      }
+    ]
 
   },
 
