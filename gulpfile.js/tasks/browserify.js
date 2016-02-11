@@ -17,7 +17,11 @@ var browserifyTask = function(devMode) {
       _.extend(bundleConfig, watchify.args, { debug: true });
     }
 
-    var b = browserify(bundleConfig);
+    var b = browserify(bundleConfig)
+      .transform(stringify({
+        extensions: [ '.hbs', '.tpl', '.mustache', '.html' ],
+        minify: true
+      }));
 
     var bundle = function() {
       bundleLogger.start(bundleConfig.outputName);
