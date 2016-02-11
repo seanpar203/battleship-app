@@ -15,7 +15,7 @@
   "author": "Jason Daly <jason@labelinteractive.com>",
   "devDependencies": {
     "babel": "6.5.1",
-    "babel-eslint": "5.0.0-beta6",
+    "babel-eslint": "5.0.0-beta10",
     "babel-plugin-transform-inline-environment-variables": "6.5.0",
     "babel-plugin-transform-remove-console": "6.5.0",
     "babel-plugin-transform-remove-debugger": "6.5.0",
