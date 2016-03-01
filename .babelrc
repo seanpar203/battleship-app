@@ -1,5 +1,23 @@
 {
   "presets": [ "es2015" ],
-  "plugins": [ "transform-inline-environment-variables", "transform-remove-console", "transform-remove-debugger" ],
   "ignore": "node_modules"
+  "plugins": [
+    "transform-inline-environment-variables"
+  ],
+
+  "env": {
+    "staging": {
+      "plugins": [
+        "transform-remove-console",
+        "transform-remove-debugger"
+      ]
+    },
+
+    "production": {
+      "plugins": [
+        "transform-remove-console",
+        "transform-remove-debugger"
+      ]
+    }
+  }
 }
