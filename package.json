@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel": "6.5.2",
     "babel-eslint": "5.0.0",
+    "babel-plugin-lodash": "^2.2.1",
     "babel-plugin-transform-inline-environment-variables": "6.5.0",
     "babel-plugin-transform-remove-console": "6.5.0",
     "babel-plugin-transform-remove-debugger": "6.5.0",

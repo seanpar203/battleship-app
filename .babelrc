@@ -2,6 +2,7 @@
   "presets": [ "es2015" ],
   "ignore": "node_modules",
   "plugins": [
+    "lodash",
     "transform-inline-environment-variables"
   ],
 
