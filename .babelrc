@@ -1,6 +1,6 @@
 {
   "presets": [ "es2015" ],
-  "ignore": "node_modules"
+  "ignore": "node_modules",
   "plugins": [
     "transform-inline-environment-variables"
   ],
