@@ -34,6 +34,16 @@ Run `gulp`  from the project root to build the project and start [Browser Sync](
 
 To run the build and watcher without BrowserSync, run `gulp watch`.
 
+## Testing
+
+Integration and unit tests go in the `tests/` directory.
+
+Unit tests in `tests/unit/` are run through [Karma](https://github.com/karma-runner/karma) using [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/). These can be run via `gulp karma`.
+
+Integration tests in `tests/integration/` are run through [Nightwatch.js](http://nightwatchjs.org/). These can be run via `gulp nightwatch`.
+
+All tests can be run at once via `gulp test`.
+
 #### Production Build
 
 Running `gulp production` will build the project for production use.
@@ -45,19 +55,13 @@ In addition to the normal compilation of asset, the production build will
 
 A `--fingerprint` flag can be included to inject cache-busting tokens to asset references.
 
-A `--rename` flag can be included to rename the files on disk with the cache tokens. This is useful in environments where Apache's `mod_rewrite` is not enabled.
+A `--rename` flag can be included along with `--fingerprint` to rename the files on disk with the cache tokens. This is useful in environments where Apache's `mod_rewrite` is not enabled.
 
 > Without `--rename`, an `.htaccess` file will be set in the `public/` directory to transform requests for assets that include a cache token in the filename back to the real file on the filesystem which does not include the cache token. With the `--rename` option in place, this is not necessary.
 
 A `rev-manifest.json` file is added to `public/` for use by frameworks asset helpers to map some helper like `<?= stylesheet_tag('app.css') ?>` to `"/assets/app--cd2ed.css"`.
-d
-## Testing
 
-Integration and unit tests go in the `tests/` directory.
-
-Unit tests in `tests/unit/` are run through [Karma](https://github.com/karma-runner/karma) using [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/). These can be run via `gulp karma`.
-
-Integration tests in `tests/integration/` are run through [Nightwatch.js](http://nightwatchjs.org/). These can be run via `gulp nightwatch`.
+Tests can be run on a production build before fingerprints are applied by including a `--test` flag.
 
 ## Changelog
 
