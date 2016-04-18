@@ -13,9 +13,9 @@ module.exports = {
       {
         entries:    src + '/assets/javascripts/app.js',
         dest:       dest + '/assets',
-        outputName: 'app.js'
-      }
-    ]
+        outputName: 'app.js',
+      },
+    ],
 
   },
 
@@ -26,19 +26,19 @@ module.exports = {
       middleware: [
         modRewrite([
           '^/assets/(.+)--([\\.a-z0-9/]+)(\\.[a-z0-9]+)$ /assets/$1$3 [L]'
-        ])
+        ]),
       ],
     },
 
     snippetOptions: {
-      blacklist: ['**/*?nosync']
-    }
+      blacklist: ['**/*?nosync'],
+    },
 
   },
 
   clean: {
 
-    src: dest
+    src: dest,
 
   },
 
@@ -53,16 +53,16 @@ module.exports = {
       precision:    3,
       includePaths: [].concat.apply([], [
         'node_modules/bootstrap-sass/assets/stylesheets'
-      ])
+      ]),
     },
 
     minify: {
       discardComments: { removeAll: true },
-      discardEmpty:    true
+      discardEmpty:    true,
     },
 
     autoprefixer: {
-      browsers: [ 'last 5 versions', 'Explorer >= 8' ]
+      browsers: [ 'last 5 versions', 'Explorer >= 8' ],
     },
 
     production: {
@@ -70,7 +70,7 @@ module.exports = {
       src:  dest + '/assets/*.css',
       dest: dest + '/assets',
 
-    }
+    },
 
   },
 
@@ -83,9 +83,9 @@ module.exports = {
       },
       {
         src:  src + '/assets/fonts/**/*.{woff,ttf,eot}',
-        dest: dest + '/assets'
+        dest: dest + '/assets',
       }
-    ]
+    ],
 
   },
 
@@ -100,7 +100,8 @@ module.exports = {
     dest: dest,
 
     htmlmin: {
-      collapseWhitespace: true
+      collapseWhitespace: true,
+      customAttrSurround: [ [/@/,/(?:)/] ], // vue.js @ attributes
     },
 
     production: {
@@ -108,7 +109,7 @@ module.exports = {
       src:  dest + '/*.html',
       dest: dest,
 
-    }
+    },
 
   },
 
@@ -121,8 +122,8 @@ module.exports = {
       optimizationLevel: 7,
       progressive:       true,
       interlaced:        true,
-      multipass:         true
-    }
+      multipass:         true,
+    },
 
   },
 
@@ -140,8 +141,8 @@ module.exports = {
         restParams:      true,
         arrowFunctions:  true,
         classes:         true,
-        defaultParams:   true
-      }
+        defaultParams:   true,
+      },
     },
 
     test: {
@@ -149,7 +150,7 @@ module.exports = {
       karma: {
 
         configFile: process.cwd() + '/karma.conf.js',
-        singleRun:  true
+        singleRun:  true,
 
       },
 
@@ -157,16 +158,16 @@ module.exports = {
         root:   process.cwd() + '/public',
         port:   8888,
         config: {
-          'index': [ 'index.html', 'index.htm' ]
-        }
+          'index': [ 'index.html', 'index.htm' ],
+        },
       },
 
       nightwatch: {
 
         config: process.cwd() + '/nightwatch.conf.js',
-        env:    'default'
+        env:    'default',
 
-      }
+      },
 
     },
 
@@ -175,7 +176,7 @@ module.exports = {
       src:  dest + '/assets/*.js',
       dest: dest + '/assets',
 
-    }
+    },
 
   },
 
@@ -193,9 +194,9 @@ module.exports = {
         var ext = path.extname(file.path);
 
         return path.basename(file.path, ext) + '--' + hash.substr(0, 5) + ext;
-      }
-    }
+      },
+    },
 
-  }
+  },
 
 };
