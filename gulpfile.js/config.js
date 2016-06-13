@@ -44,7 +44,9 @@ module.exports = {
 
   css: {
 
-    src:   [ src + '/assets/stylesheets/**/*.scss', '!' + src + '/assets/stylesheets/**/_*.scss' ],
+    src:   [
+      src + '/assets/stylesheets/app.scss',
+    ],
     dest:  dest + '/assets',
     watch: src + '/assets/stylesheets/**/*.scss',
 
