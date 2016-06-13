@@ -10,10 +10,10 @@ const modules = { index };
 
 document.addEventListener('DOMContentLoaded', () => {
   // run the page-specific module js
-  let module = document.querySelector('#page').dataset.module;
+  const module = document.querySelector('#page').dataset.module;
 
   if (_has(modules, module)) {
-    new modules[module];
+    modules[module]();
   }
 
   // Fastclick

@@ -1,7 +1,3 @@
-export default class {
-
-  constructor() {
-    console.log('index');
-  }
-
-}
+export default () => {
+  //
+};
