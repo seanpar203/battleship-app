@@ -1,4 +1,4 @@
-import './plugins';
+import 'babel-polyfill';
 import _has from 'lodash/has';
 import attachFastClick from 'fastclick';
 

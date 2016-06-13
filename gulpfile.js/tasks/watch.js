@@ -3,7 +3,7 @@ var config      = require('../config');
 var runSequence = require('run-sequence');
 
 gulp.task('watch', function(cb) {
-  runSequence('clean', [ 'watchify', 'sass', 'images', 'extras', 'html' ], cb);
+  runSequence('clean', [ 'lint-js', 'watchify', 'sass', 'images', 'extras', 'html' ], cb);
 
   gulp.watch(config.css.watch,  [ 'sass' ]);
   gulp.watch(config.images.src, [ 'images' ]);
