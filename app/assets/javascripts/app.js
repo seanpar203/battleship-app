@@ -15,7 +15,7 @@ window.onload = () => {
 
     data() {
       return {
-        page: 'home-view'
+        view: 'home-view'
       }
     },
 
@@ -23,7 +23,7 @@ window.onload = () => {
   });
 };
 // DomContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Fastclick
-  attachFastClick(document.body);
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    // Fastclick
+    attachFastClick(document.body);
+  });

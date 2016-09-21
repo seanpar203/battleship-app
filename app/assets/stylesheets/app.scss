@@ -4,22 +4,3 @@
 @import "_variables";
 @import "_vendor";
 @import "_mixins";
-
-
-
-// Application styles
-//
-// -----------------------------------------------------------------------------
-
-body {
-  background-image: linear-gradient(#EEE, #FFF 500px);
-}
-
-h2 {
-  border-bottom: 2px solid #EEE;
-}
-
-blockquote {
-  background-color: rgba(white, .4);
-  border-left: 3px solid white;
-}
