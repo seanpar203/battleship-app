@@ -1,3 +1,3 @@
-export default () => {
-  //
-};
+export default {
+  template: require('./templates/home.html')
+}

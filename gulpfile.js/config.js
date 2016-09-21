@@ -44,9 +44,7 @@ module.exports = {
 
   css: {
 
-    src:   [
-      src + '/assets/stylesheets/app.scss',
-    ],
+    src:   [ src + '/assets/stylesheets/**/*.scss', '!' + src + '/assets/stylesheets/**/_*.scss' ],
     dest:  dest + '/assets',
     watch: src + '/assets/stylesheets/**/*.scss',
 
@@ -133,6 +131,19 @@ module.exports = {
 
     src:  [ src + '/assets/javascripts/**/*.js' ],
     dest: dest + '/assets',
+
+    eslint: {
+      parser:       'babel-eslint',
+      ecmaFeatures: {
+        templateStrings: true,
+        modules:         true,
+        destructuring:   true,
+        restParams:      true,
+        arrowFunctions:  true,
+        classes:         true,
+        defaultParams:   true,
+      },
+    },
 
     test: {
 

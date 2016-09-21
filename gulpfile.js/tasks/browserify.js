@@ -8,6 +8,7 @@ var handleErrors = require('../util/handle-errors');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
 var _            = require('lodash');
+var stringify    = require('stringify');
 
 var browserifyTask = function(devMode) {
   var browserifyThis = function(bundleConfig) {
@@ -16,7 +17,11 @@ var browserifyTask = function(devMode) {
       _.extend(bundleConfig, watchify.args, { debug: true });
     }
 
-    var b = browserify(bundleConfig);
+    var b = browserify(bundleConfig)
+      // .transform(stringify({
+      //   extensions: [ '.hbs', '.tpl', '.mustache', '.html' ],
+      //   minify: true
+      // }));
 
     var bundle = function() {
       bundleLogger.start(bundleConfig.outputName);

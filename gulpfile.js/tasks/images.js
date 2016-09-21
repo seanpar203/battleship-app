@@ -3,15 +3,13 @@ var gulp        = require('gulp');
 var imagemin    = require('gulp-imagemin');
 var config      = require('../config').images;
 var browserSync = require('browser-sync');
+var argv        = require('yargs').argv;
 var _           = require('lodash');
+var gulpIf      = require('gulp-if');
 const pngquant  = require('imagemin-pngquant');
 
 gulp.task('images', function() {
-  // For a src like app/assets/images/**/*, this will attempt to grab the path
-  // from that, resulting in app/assets/images
-  var basePath = config.src.replace(/\/\*.+$/, '');
-
-  return gulp.src(config.src, { base: basePath })
+  return gulp.src(config.src, { base: 'app/assets/images' })
     .pipe(changed(config.dest))
     .pipe(imagemin(_.extend(
       config.imagemin,

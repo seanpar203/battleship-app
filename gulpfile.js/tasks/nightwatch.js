@@ -2,7 +2,7 @@ var gulp         = require('gulp');
 var http         = require('http');
 var serveStatic  = require('serve-static');
 var finalhandler = require('finalhandler');
-var config       = require('../config').js.test.nightwatch;
+var config       = require('../config').js.test;
 var spawn        = require('child_process').spawn;
 var path         = require('path');
 
@@ -20,7 +20,7 @@ gulp.task('nightwatch', function(callback) {
     'node',
     [
       path.join(__dirname, '..', 'util', 'nightwatch.js'),
-      JSON.stringify(config)
+      JSON.stringify(config.nightwatch)
     ],
     {
       stdio: 'inherit'
