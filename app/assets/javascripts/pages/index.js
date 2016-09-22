@@ -1,3 +1,3 @@
 export default {
-  template: require('./templates/home.html')
+  template: require('../templates/home.html')
 }

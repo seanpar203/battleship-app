@@ -1,12 +1,10 @@
-<!-- @include assets/templates/_header.html -->
+<!-- @include assets/javascripts/templates/_header.html -->
 
-<div>
-  <!-- fade out first, then fade in -->
-  <component
-    :is='view'
-    transition='fade'
-    transition-mode='out-in'>
-  </component>
-</div>
+<!-- fade out first, then fade in -->
+<component
+		:is='view'
+		transition='fade'
+		transition-mode='out-in'>
+</component>
 
-<!-- @include assets/templates/_footer.html -->
+<!-- @include assets/javascripts/templates/_footer.html -->
