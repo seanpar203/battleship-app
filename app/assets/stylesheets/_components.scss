@@ -49,6 +49,43 @@ header {
   background: url("radar-bg.jpg") no-repeat center;
   background-size: contain;
 
+  input {
+    text-align: center;
+    display: block;
+    height: 30px;
+    width: 175px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: $radar-green;
+
+    &:active, &:focus {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+      outline-color: $radar-green;
+    }
+
+    &:-moz-placeholder {
+      color: $radar-green;
+    }
+    &:-ms-input-placeholder {
+      color: $radar-green;
+    }
+    &::-webkit-input-placeholder {
+      color: $radar-green;
+    }
+
+    &::-moz-placeholder {
+      color: $radar-green;
+    }
+  }
+
   button {
     display: block;
     color: #000;
@@ -63,6 +100,9 @@ header {
     background-color: $radar-green;
     border: 1px solid $radar-green;
     font-weight: bold;
+  }
+
+  input, button {
 
     &:hover {
       -webkit-animation-play-state: paused;
