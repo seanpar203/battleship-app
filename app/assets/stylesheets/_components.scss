@@ -31,12 +31,26 @@ header {
 
   button {
 	display: block;
+	color: #000;
 	width: 150px;
+	height: 35px;
 	position: absolute;
 	top: 50%;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	transform: translateY(-50%);
+	background-color: #13DF03;
+	border: 1px solid #13DF03;
+	font-weight: bold;
+
+	&:hover {
+	  -webkit-animation-play-state: paused;
+	  -moz-animation-play-state: paused;
+	  -o-animation-play-state: paused;
+	  animation-play-state: paused;
+	  background-color: #000;
+	  color: #13DF03;
+	}
   }
 }

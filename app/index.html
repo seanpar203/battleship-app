@@ -3,8 +3,10 @@
 <!-- fade out first, then fade in -->
 <component
 		:is='view'
+		:view.sync='view'
 		transition='fade'
-		transition-mode='out-in'>
+		transition-mode='out-in'
+		keep-alive>
 </component>
 
 <!-- @include assets/javascripts/templates/_footer.html -->
