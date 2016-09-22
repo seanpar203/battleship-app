@@ -3,5 +3,6 @@
  */
 
 export default {
+  props:    ['view'],
   template: require('../templates/navigation.html')
 }
