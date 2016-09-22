@@ -2,7 +2,7 @@ import Vue from 'vue';
 import 'babel-polyfill';
 import HomeView from './pages/index';
 import GameView from './pages/game';
-import Navigation from './components/navigation'
+import Navigation from './components/navigation';
 import attachFastClick from 'fastclick';
 
 
@@ -19,15 +19,11 @@ window.onload = () => {
 
     data() {
       return {
-        view:     'game-view',
-        email:    '',
+        view:     'home-view',
         gameId:   '',
+        userName: '',
         loggedIn: false,
       }
-    },
-
-    compiled() {
-
     },
 
     components: components,
