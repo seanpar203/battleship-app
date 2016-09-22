@@ -1,11 +1,11 @@
 export default {
-	props: ['view'],
+  props: ['view'],
 
-	template: require('../templates/home.html'),
+  template: require('../templates/home.html'),
 
-	methods: {
-		startGame() {
-			this.view = 'game-view';
-		}
-	}
+  methods: {
+    startGame() {
+      this.view = 'game-view';
+    }
+  }
 }
