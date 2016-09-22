@@ -9,8 +9,7 @@ export default {
   methods: {
     addLocation(id) {
       if (!this.hasShip) {
-
-        this.userCoords.push(id)
+        this.userCoords.length != 5 ? this.userCoords.push(id) : ''
       } else {
         this.userCoords = this.userCoords.filter(loc => {
           return loc !== id;

@@ -2,6 +2,7 @@
  * Created by sean on 22/09/2016.
  */
 import GameRow from '../components/game-row';
+import $http from '../services/http';
 
 // Local Variables to Vue component.
 let allCoords = [
@@ -33,7 +34,24 @@ export default {
   },
 
 
-  methods: {},
+  methods: {
+    saveUserCoords() {
+      $http
+        .post(`/game/${this.gameId}/coords`,
+          {
+            user_name: this.userName,
+            coords: this.userCoords,
+            player: 'acc_coords'
+          }
+        )
+        .then(res => {
+          debugger;
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  },
 
   computed: {
     coordsPicked() {

@@ -17,7 +17,9 @@
               </tr>
             </tbody>
           </table>
-          <button class='btn' v-bind:class="!coordsPicked ? 'hidden' : ''">Save Coordinates</button>
+          <button class='btn'
+                  v-bind:class="!coordsPicked ? 'hidden' : ''"
+                  @click='saveUserCoords()'>Save Coordinates</button>
         </div>
       </div>
     </div>
