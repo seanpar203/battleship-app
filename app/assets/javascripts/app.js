@@ -26,6 +26,10 @@ window.onload = () => {
       }
     },
 
+    compiled() {
+
+    },
+
     components: components,
   });
 };
