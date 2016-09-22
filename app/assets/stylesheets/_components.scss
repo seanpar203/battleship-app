@@ -12,11 +12,23 @@ header {
   background-size: contain;
 }
 
+.navigation {
+  background-color: #000;
+  text-align: center;
+
+  ul {
+    list-style-type: none;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
 // Home Page
 .home-page {
   padding-top: 50px;
   background-color: #000;
-  border-top: 1px solid #13DF03;
+  border-top: 1px solid $radar-green;
 }
 
 // Radar BG.
@@ -30,27 +42,70 @@ header {
   background-size: contain;
 
   button {
-	display: block;
-	color: #000;
-	width: 150px;
-	height: 35px;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	transform: translateY(-50%);
-	background-color: #13DF03;
-	border: 1px solid #13DF03;
-	font-weight: bold;
+    display: block;
+    color: #000;
+    width: 150px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    background-color: $radar-green;
+    border: 1px solid $radar-green;
+    font-weight: bold;
 
-	&:hover {
-	  -webkit-animation-play-state: paused;
-	  -moz-animation-play-state: paused;
-	  -o-animation-play-state: paused;
-	  animation-play-state: paused;
-	  background-color: #000;
-	  color: #13DF03;
-	}
+    &:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+      background-color: #000;
+      color: $radar-green;
+    }
+  }
+}
+
+.game-page {
+  padding-top: 75px;
+  background-color: #000;
+}
+
+#board {
+
+  td {
+    position: relative;
+    border: 1px solid $radar-green !important;
+
+    input {
+      display: none;
+      &:checked + label {
+        cursor: pointer;
+        background: url('http://codifyacademy.com/project_battleship_demo/css/../img/ship.png') no-repeat center center;
+        background-size: 50%;
+      }
+    }
+
+    label {
+      cursor: pointer;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  tr {
+    height: 90px !important;
+  }
+
+  /*hit or miss*/
+  .hit {
+    background: url('http://codifyacademy.com/project_battleship_demo/css/../img/ship.png') no-repeat center center;
+  }
+
+  .miss {
+    background: url('http://codifyacademy.com/project_battleship_demo/css/../img/miss.png') no-repeat center center;
   }
 }
