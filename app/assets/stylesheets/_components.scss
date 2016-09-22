@@ -12,14 +12,31 @@ header {
   background-size: contain;
 }
 
+// Home Page
 .home-page {
   padding-top: 50px;
   background-color: #000;
-  border-top: 1px solid #13df03;
+  border-top: 1px solid #13DF03;
 }
+
+// Radar BG.
 .radar-bg {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
   height: 500px;
-  width: 100%;
+  max-width: 500px;
   background: url("radar-bg.jpg") no-repeat center;
   background-size: contain;
+
+  button {
+	display: block;
+	width: 150px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transform: translateY(-50%);
+  }
 }
