@@ -31,40 +31,62 @@ export default {
       cpuCoords: [],
       userCoords: [],
       availCoords: allCoords,
-      userCoordsSaved: false,
       cpuCoordsSaved: false,
+      userCoordsSaved: false,
+      possibleTargets: allCoords,
       instructions: 'Select 5 ship locations.'
     }
   },
 
   methods: {
+
+    /** Save User Coordinates Functionality. */
     saveUserCoords() {
       $http
-        .post(`/game/${this.gameId}/coords`,
-          {
-            user_name: this.userName,
-            coords: this.userCoords,
-            player: 'acc_coords'
-          }
-        )
-        .then(res => {
-          debugger;
-        })
+        .post(`/game/${this.gameId}/coords`, this.getUserCoords)
+        .then(this.saveUserCoordsSuccess)
+        .catch(this.saveUserCoordsError)
+    },
+
+    saveUserCoordsSuccess(res) {
+      this.userCoordsSaved = true;
+      this.genCpuCoords();
+    },
+
+    saveUserCoordsError(err) {
+      console.log(err);
+    },
+
+    /** Save Cpu Coordinates Functionality. */
+
+    saveCpuCoords() {
+      $http
+        .post(`/game/${this.gameId}/coords`, this.getCpuCoords)
+        .then(this.saveCpuCoordsSuccess)
         .catch(err => {
           console.log(err);
         })
     },
 
+    saveCpuCoordsSuccess(res) {
+      this.cpuCoordsSaved = true;
+      console.log(res);
+    },
+
+    /** Randomizing Cpu Coordinates Functionality */
     genCpuCoords() {
       this.userCoords.forEach(coord => {
         let num = this.availCoords[Math.floor(Math.random() * this.availCoords.length)];
         this.removeCoord(num);
         this.cpuCoords.push(num)
-      })
+      });
+
+      this.saveCpuCoords();
     },
 
+    /** Remove from array when selected */
     removeCoord(id) {
-      this.availCoords = this.availCoords.filter(coord => {
+      this.possibleTargets = this.possibleTargets.filter(coord => {
         return coord !== id;
       })
     }
@@ -77,6 +99,22 @@ export default {
 
     coordsSaved() {
       return this.userCoordsSaved && this.cpuCoordsSaved;
+    },
+
+    getUserCoords() {
+      return {
+        user_name: this.userName,
+        coords: this.userCoords,
+        player: 'acc_coords'
+      }
+    },
+
+    getCpuCoords() {
+      return {
+        user_name: this.userName,
+        coords: this.cpuCoords,
+        player: 'cpu_coords'
+      }
     }
   },
 
