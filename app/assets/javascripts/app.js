@@ -19,7 +19,7 @@ window.onload = () => {
 
     data() {
       return {
-        view:     'home-view',
+        view:     'game-view',
         gameId:   '',
         userName: '',
         loggedIn: false,

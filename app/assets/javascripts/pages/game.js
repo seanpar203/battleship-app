@@ -23,13 +23,14 @@ let rows = [
 export default {
   props: ['view', 'userName', 'gameId'],
   template: require('../templates/game.html'),
+  components: {GameRow},
 
   data() {
     return {
       rows: rows,
-      allCoords: allCoords,
       cpuCoords: [],
       userCoords: [],
+      availCoords: allCoords,
       userCoordsSaved: false,
       cpuCoordsSaved: false
     }
@@ -65,5 +66,5 @@ export default {
     }
   },
 
-  components: {GameRow}
+  watch: {}
 }

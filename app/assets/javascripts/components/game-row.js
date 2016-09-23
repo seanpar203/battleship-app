@@ -3,16 +3,15 @@
  */
 
 export default {
-  props: ['id', 'userCoords', 'cpuCoords', 'savedCoords'],
+  props: ['id', 'userCoords', 'cpuCoords', 'savedCoords', 'availCoords'],
   template: require('../templates/game-row.html'),
 
   methods: {
     selectCoord(id) {
       if (!this.savedCoords) {
         if (!this.hasShip) {
-          this.userCoords.length != 5
-            ? this.userCoords.push(id)
-            : ''
+          this.userCoords.length != 5 ? this.userCoords.push(id) : '';
+          this.removeCoord('availCoords', id);
         } else {
           this.removeCoord('userCoords', id);
         }
