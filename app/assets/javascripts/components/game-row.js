@@ -9,6 +9,7 @@ export default {
     'userCoords',
     'availCoords',
     'savedCoords',
+    'strikeCoord',
     'coordsSaved'
   ],
 
@@ -31,7 +32,7 @@ export default {
 
       // If User & CPU Coords have been saved.
       if (this.coordsSaved) {
-
+        this.strikeCoord = id;
       }
     },
 
@@ -63,10 +64,15 @@ export default {
       return this.cpuCoords.find(coord => coord == this.id);
     },
 
+    isStrikeCoord() {
+      return this.id === this.strikeCoord;
+    },
+
     coordClasses() {
       return {
         'ship': this.userShip,
-        'miss': this.cpuShip
+        'miss': this.cpuShip,
+        'strike': this.isStrikeCoord
       }
     }
   }
