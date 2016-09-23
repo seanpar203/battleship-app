@@ -144,13 +144,18 @@ header {
 
       &.ship {
         cursor: pointer;
-        background: url('http://codifyacademy.com/project_battleship_demo/css/../img/ship.png') no-repeat center center;
+        background: url('ship.png') no-repeat center center;
         background-size: 50%;
       }
 
       &.miss {
-        background: url('http://codifyacademy.com/project_battleship_demo/css/../img/miss.png') no-repeat center center;
+        background: url('miss.png') no-repeat center center;
       }
+
+      &.strike {
+       border: 1px solid red;
+      }
+
     }
   }
 
@@ -182,14 +187,5 @@ header {
 
   tr {
     height: 90px !important;
-  }
-
-  /*hit or miss*/
-  .hit {
-    background: url('http://codifyacademy.com/project_battleship_demo/css/../img/ship.png') no-repeat center center;
-  }
-
-  .miss {
-    background: url('http://codifyacademy.com/project_battleship_demo/css/../img/miss.png') no-repeat center center;
   }
 }
