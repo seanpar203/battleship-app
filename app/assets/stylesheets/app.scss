@@ -8,8 +8,10 @@
 @import "components";
 
 html {
-  width: 100%;
-  height: 100%;
-  position: fixed;
   background-color: #000;
+}
+
+body {
+  background-color: #000;
+  padding-bottom: 150px;
 }
