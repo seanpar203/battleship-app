@@ -27,16 +27,31 @@ export default {
 
   data() {
     return {
+      // Board related data.
       rows: rows,
-      cpuCoords: [],
-      cpuStrikes: [],
-      userStries: [],
-      userCoords: [],
-      strikeCoord: 0,
       availCoords: allCoords,
+
+      // Coordinate related data.
+      cpuCoords: [],
+      userCoords: [],
+
+      // Coordinate saved state.
       cpuCoordsSaved: false,
       userCoordsSaved: false,
+
+      // Strike related data.
+      strikeCoord: 0,
+      userStries: [],
+      cpuStrikes: [],
+
+      // Array of hits.
+      userHits:[],
+      cpuHits:[],
+
+      // Posibility array for AI.
       possibleTargets: allCoords,
+
+      // Text to show above board.
       instructions: 'Select 5 ship locations.'
     }
   },
@@ -95,6 +110,7 @@ export default {
   },
 
   computed: {
+    /** Coordinates Computed Properties */
     coordsPicked() {
       return this.userCoords.length === 5 && !this.coordsSaved;
     },
@@ -107,6 +123,7 @@ export default {
       return this.strikeCoord !== 0;
     },
 
+    /** Helper computed properties to reduce code in Ajax requests. */
     getUserCoords() {
       return {
         user_name: this.userName,

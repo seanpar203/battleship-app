@@ -9,20 +9,33 @@ export default {
     'userCoords',
     'availCoords',
     'savedCoords',
+    'coordsSaved'
   ],
 
   template: require('../templates/game-row.html'),
 
   methods: {
+
+    /** Selecting Coordinate Functionality */
     selectCoord(id) {
+
+      // If User & CPU Coords haven't been saved.
       if (!this.savedCoords) {
         if (!this.userShip) {
           this.userCoords.length != 5 ? this.addUserCord(id) : '';
-        } else {
+        }
+        else {
           this.removeUserCoord(id)
         }
       }
+
+      // If User & CPU Coords have been saved.
+      if (this.coordsSaved) {
+
+      }
     },
+
+    /** Utility functions */
 
     removeCoord(from, id) {
       this[from] = this[from].filter(coord => {

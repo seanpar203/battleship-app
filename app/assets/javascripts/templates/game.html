@@ -17,6 +17,8 @@
                             :user-coords.sync='userCoords'
                             :saved-coords.sync='savedCoords'
                             :avail-coords.sync='availCoords'
+                            :coords-saved.sync='coordsSaved'
+                            :strike-coords.sync='strikeCoord'
                             :cpu-coords.sync='cpuCoords'>
                   </game-row>
                 </td>
@@ -24,7 +26,7 @@
             </tbody>
           </table>
           <button class='btn' v-bind:class="{'hidden': !coordsPicked}" @click='saveUserCoords()'>Save Coordinates</button>
-          <button class='btn' v-bind:class="{'hidden': !coordsPicked}" @click='saveUserCoords()'>Strike!</button>
+          <button class='btn' v-bind:class="{'hidden': !coordsPicked}">Strike!</button>
         </div>
       </div>
     </div>
