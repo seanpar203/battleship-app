@@ -16,7 +16,7 @@ export default {
   methods: {
     selectCoord(id) {
       if (!this.savedCoords) {
-        if (!this.hasShip) {
+        if (!this.userShip) {
           this.userCoords.length != 5 ? this.addUserCord(id) : '';
         } else {
           this.removeUserCoord(id)
@@ -42,7 +42,7 @@ export default {
   },
 
   computed: {
-    hasShip() {
+    userShip() {
       return this.userCoords.find(loc => {
         return loc == this.id;
       })

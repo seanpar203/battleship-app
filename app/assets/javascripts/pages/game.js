@@ -54,7 +54,12 @@ export default {
         .catch(err => {
           console.log(err);
         })
-    }
+    },
+
+   generateCpuCoords() {
+
+
+   }
   },
 
   computed: {
@@ -69,11 +74,13 @@ export default {
 
   watch: {
     'userCoords': function (val, oldVal) {
-      if (val.length === 5) {
-        this.instructions = 'Save your ship coordinates to start the game!';
-      }
-      else  {
-        this.instructions = `Select ${5 - val.length } ship locations.`;
+      if (!this.coordsSaved) {
+        if (val.length === 5) {
+          this.instructions = 'Save your ship coordinates to start the game!';
+        }
+        else {
+          this.instructions = `Select ${5 - val.length } ship locations.`;
+        }
       }
     }
   }
