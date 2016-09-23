@@ -43,9 +43,11 @@ export default {
 
   computed: {
     userShip() {
-      return this.userCoords.find(loc => {
-        return loc == this.id;
-      })
+      return this.userCoords.find(coord => coord == this.id);
+    },
+
+    cpuShip() {
+      return this.cpuCoords.find(coord => coord == this.id);
     }
   }
 }

@@ -32,6 +32,7 @@ export default {
       cpuStrikes: [],
       userStries: [],
       userCoords: [],
+      strikeCoord: 0,
       availCoords: allCoords,
       cpuCoordsSaved: false,
       userCoordsSaved: false,
@@ -88,22 +89,22 @@ export default {
 
     /** Remove from array when selected */
     removeCoord(id) {
-      this.availCoords = this.availCoords.filter(coord => {
-        return coord !== id;
-      });
-      this.possibleTargets = this.possibleTargets.filter(coord => {
-        return coord !== id;
-      })
+      this.availCoords = this.availCoords.filter(coord => coord !== id);
+      this.possibleTargets = this.possibleTargets.filter(coord => coord !== id);
     }
   },
 
   computed: {
     coordsPicked() {
-      return this.userCoords.length == 5;
+      return this.userCoords.length === 5 && !this.coordsSaved;
     },
 
     coordsSaved() {
       return this.userCoordsSaved && this.cpuCoordsSaved;
+    },
+
+    strikePicked() {
+      return this.strikeCoord !== 0;
     },
 
     getUserCoords() {
@@ -121,6 +122,7 @@ export default {
         player: 'cpu_coords'
       }
     }
+
   },
 
   watch: {
