@@ -41,8 +41,8 @@ export default {
 
       // Strike related data.
       strikeCoord: 0,
-      userStries: [],
-      cpuStrikes: [],
+      userStrikes: [],
+      cpuStrikes: [1],
 
       // Array of hits.
       userHits:[],

@@ -10,6 +10,8 @@ export default {
     'availCoords',
     'savedCoords',
     'strikeCoord',
+    'userStrikes',
+    'cpuStrikes',
     'coordsSaved'
   ],
 
@@ -57,11 +59,19 @@ export default {
 
   computed: {
     userShip() {
-      return this.userCoords.find(coord => coord == this.id);
+      return this.userCoords.find(coord => coord === this.id);
     },
 
     cpuShip() {
-      return this.cpuCoords.find(coord => coord == this.id);
+      return this.cpuCoords.find(coord => coord === this.id);
+    },
+
+    isUserHit() {
+      return this.cpuStrikes.find(coord => coord === this.id)
+    },
+
+    miss() {
+      return !this.userShip && !this.cpuShip
     },
 
     isStrikeCoord() {
@@ -71,8 +81,9 @@ export default {
     coordClasses() {
       return {
         'ship': this.userShip,
-        'miss': this.cpuShip,
-        'strike': this.isStrikeCoord
+        'miss': this.miss,
+        'strike': this.isStrikeCoord,
+        'ship user-hit': this.isUserHit,
       }
     }
   }
