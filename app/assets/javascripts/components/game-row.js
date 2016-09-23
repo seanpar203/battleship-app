@@ -48,6 +48,13 @@ export default {
 
     cpuShip() {
       return this.cpuCoords.find(coord => coord == this.id);
+    },
+
+    coordClasses() {
+      return {
+        'ship': this.userShip,
+        'miss': this.cpuShip
+      }
     }
   }
 }

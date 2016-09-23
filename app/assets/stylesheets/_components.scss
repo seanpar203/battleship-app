@@ -147,6 +147,10 @@ header {
         background: url('http://codifyacademy.com/project_battleship_demo/css/../img/ship.png') no-repeat center center;
         background-size: 50%;
       }
+
+      &.miss {
+        background: url('http://codifyacademy.com/project_battleship_demo/css/../img/miss.png') no-repeat center center;
+      }
     }
   }
 
