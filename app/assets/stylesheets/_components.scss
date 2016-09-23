@@ -117,12 +117,18 @@ header {
 }
 
 .game-page {
-  padding-top: 75px;
+  padding-top: 35px;
   background-color: #000;
 }
 
 #board {
 
+  h3 {
+    text-align: center;
+    color: $radar-green;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
   td {
     position: relative;
     border: 1px solid $radar-green !important;

@@ -32,7 +32,8 @@ export default {
       userCoords: [],
       availCoords: allCoords,
       userCoordsSaved: false,
-      cpuCoordsSaved: false
+      cpuCoordsSaved: false,
+      instructions: 'Select 5 ship locations.'
     }
   },
 
@@ -66,5 +67,11 @@ export default {
     }
   },
 
-  watch: {}
+  watch: {
+    'userCoords': function (oldVal, newVal) {
+      if (newVal.length === 5) {
+
+      }
+    }
+  }
 }

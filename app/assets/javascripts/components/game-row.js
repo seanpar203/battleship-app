@@ -3,7 +3,14 @@
  */
 
 export default {
-  props: ['id', 'userCoords', 'cpuCoords', 'savedCoords', 'availCoords'],
+  props: [
+    'id',
+    'cpuCoords',
+    'userCoords',
+    'availCoords',
+    'savedCoords',
+  ],
+
   template: require('../templates/game-row.html'),
 
   methods: {
