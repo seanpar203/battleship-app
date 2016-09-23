@@ -14,6 +14,7 @@ export default {
           this.removeCoord('availCoords', id);
         } else {
           this.removeCoord('userCoords', id);
+          this.availCoords.splice(id - 1, 0, id);
         }
       }
     },
