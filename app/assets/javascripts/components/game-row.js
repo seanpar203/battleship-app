@@ -10,11 +10,9 @@ export default {
     selectCoord(id) {
       if (!this.savedCoords) {
         if (!this.hasShip) {
-          this.userCoords.length != 5 ? this.userCoords.push(id) : '';
-          this.removeCoord('availCoords', id);
+          this.userCoords.length != 5 ? this.addUserCord(id) : '';
         } else {
-          this.removeCoord('userCoords', id);
-          this.availCoords.splice(id - 1, 0, id);
+          this.removeUserCoord(id)
         }
       }
     },
@@ -23,6 +21,16 @@ export default {
       this[from] = this[from].filter(coord => {
         return coord !== id;
       })
+    },
+
+    removeUserCoord(id) {
+      this.removeCoord('userCoords', id);
+      this.availCoords.splice(id - 1, 0, id);
+    },
+
+    addUserCord(id) {
+      this.userCoords.push(id);
+      this.removeCoord('availCoords', id);
     }
   },
 
