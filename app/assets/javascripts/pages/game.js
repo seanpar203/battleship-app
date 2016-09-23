@@ -30,6 +30,8 @@ export default {
       allCoords: allCoords,
       cpuCoords: [],
       userCoords: [],
+      userCoordsSaved: false,
+      cpuCoordsSaved: false
     }
   },
 
@@ -56,6 +58,10 @@ export default {
   computed: {
     coordsPicked() {
       return this.userCoords.length == 5;
+    },
+
+    coordsSaved() {
+      return this.userCoordsSaved && this.cpuCoordsSaved;
     }
   },
 

@@ -3,18 +3,26 @@
  */
 
 export default {
-  props: ['id', 'userCoords', 'cpuCoords'],
+  props: ['id', 'userCoords', 'cpuCoords', 'savedCoords'],
   template: require('../templates/game-row.html'),
 
   methods: {
-    addLocation(id) {
-      if (!this.hasShip) {
-        this.userCoords.length != 5 ? this.userCoords.push(id) : ''
-      } else {
-        this.userCoords = this.userCoords.filter(loc => {
-          return loc !== id;
-        })
+    selectCoord(id) {
+      if (!this.savedCoords) {
+        if (!this.hasShip) {
+          this.userCoords.length != 5
+            ? this.userCoords.push(id)
+            : ''
+        } else {
+          this.removeCoord('userCoords', id);
+        }
       }
+    },
+
+    removeCoord(from, id) {
+      this[from] = this[from].filter(coord => {
+        return coord !== id;
+      })
     }
   },
 

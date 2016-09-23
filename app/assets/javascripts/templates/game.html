@@ -12,7 +12,10 @@
               <!-- battleship rows-->
               <tr v-for='row in rows'>
                 <td v-for='id in row'>
-                  <game-row :id='id' :user-coords.sync='userCoords' :cpu-coords.sync='cpuCoords'></game-row>
+                  <game-row :id='id'
+                            :user-coords.sync='userCoords'
+                            :cpu-coords.sync='cpuCoords'>
+                  </game-row>
                 </td>
               </tr>
             </tbody>
