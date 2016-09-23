@@ -81,9 +81,8 @@ export default {
     coordClasses() {
       return {
         'ship': this.userShip,
-        'miss': this.miss,
         'strike': this.isStrikeCoord,
-        'ship user-hit': this.isUserHit,
+        'ship hit': this.isUserHit,
       }
     }
   }
