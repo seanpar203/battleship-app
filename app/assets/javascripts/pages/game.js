@@ -68,9 +68,12 @@ export default {
   },
 
   watch: {
-    'userCoords': function (oldVal, newVal) {
-      if (newVal.length === 5) {
-
+    'userCoords': function (val, oldVal) {
+      if (val.length === 5) {
+        this.instructions = 'Save your ship coordinates to start the game!';
+      }
+      else  {
+        this.instructions = `Select ${5 - val.length } ship locations.`;
       }
     }
   }
