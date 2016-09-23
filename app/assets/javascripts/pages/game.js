@@ -29,6 +29,8 @@ export default {
     return {
       rows: rows,
       cpuCoords: [],
+      cpuStrikes: [],
+      userStries: [],
       userCoords: [],
       availCoords: allCoords,
       cpuCoordsSaved: false,
@@ -70,15 +72,15 @@ export default {
 
     saveCpuCoordsSuccess(res) {
       this.cpuCoordsSaved = true;
-      console.log(res);
+      this.instructions = 'Select a coordinate to attack the CPU.'
     },
 
     /** Randomizing Cpu Coordinates Functionality */
     genCpuCoords() {
       this.userCoords.forEach(coord => {
         let num = this.availCoords[Math.floor(Math.random() * this.availCoords.length)];
+        this.cpuCoords.push(num);
         this.removeCoord(num);
-        this.cpuCoords.push(num)
       });
 
       this.saveCpuCoords();
@@ -86,6 +88,9 @@ export default {
 
     /** Remove from array when selected */
     removeCoord(id) {
+      this.availCoords = this.availCoords.filter(coord => {
+        return coord !== id;
+      });
       this.possibleTargets = this.possibleTargets.filter(coord => {
         return coord !== id;
       })
