@@ -14,6 +14,7 @@
                 <td v-for='id in row'>
                   <game-row :id='id'
                             :user-coords.sync='userCoords'
+                            :saved-coords.sync='savedCoords'
                             :cpu-coords.sync='cpuCoords'>
                   </game-row>
                 </td>
@@ -22,7 +23,8 @@
           </table>
           <button class='btn'
                   v-bind:class="!coordsPicked ? 'hidden' : ''"
-                  @click='saveUserCoords()'>Save Coordinates</button>
+                  @click='saveUserCoords()'>Save Coordinates
+          </button>
         </div>
       </div>
     </div>
