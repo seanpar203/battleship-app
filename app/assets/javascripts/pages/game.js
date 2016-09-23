@@ -37,7 +37,6 @@ export default {
     }
   },
 
-
   methods: {
     saveUserCoords() {
       $http
@@ -56,10 +55,19 @@ export default {
         })
     },
 
-   generateCpuCoords() {
+    genCpuCoords() {
+      this.userCoords.forEach(coord => {
+        let num = this.availCoords[Math.floor(Math.random() * this.availCoords.length)];
+        this.removeCoord(num);
+        this.cpuCoords.push(num)
+      })
+    },
 
-
-   }
+    removeCoord(id) {
+      this.availCoords = this.availCoords.filter(coord => {
+        return coord !== id;
+      })
+    }
   },
 
   computed: {
