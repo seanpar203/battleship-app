@@ -21,19 +21,26 @@ let rows = [
 ];
 
 export default {
-  props: ['view', 'userName', 'gameId'],
+  props: [
+    'view',
+    'userName',
+    'gameId'
+  ],
   template: require('../templates/game.html'),
   components: {GameRow},
 
   data() {
     return {
+      // Boolean value of user win status.
+      won: false,
+
       // Board related data.
       rows: rows,
       availCoords: allCoords,
 
       // Coordinate related data.
-      cpuCoords: [3],
-      userCoords: [2],
+      cpuCoords: [],
+      userCoords: [],
 
       // Coordinate saved state.
       cpuCoordsSaved: false,
@@ -41,12 +48,12 @@ export default {
 
       // Strike related data.
       strikeCoord: 0,
-      userStrikes: [5],
-      cpuStrikes: [17],
+      userStrikes: [],
+      cpuStrikes: [],
 
       // Array of hits.
-      userHits:[],
-      cpuHits:[],
+      userHits: 0,
+      cpuHits: 0,
 
       // Posibility array for AI.
       possibleTargets: allCoords,
@@ -91,6 +98,39 @@ export default {
       this.instructions = 'Select a coordinate to attack the CPU.'
     },
 
+    /** Striking Functionality */
+
+    userStrike() {
+      this.userStrikes.push(this.strikeCoord);
+      this.removePossible(this.strikeCoord);
+      if (this.cpuCoords.includes(this.strikeCoord)) {
+        this.userHits += 1;
+        if (this.userHits === 5) {
+          this.instructions = 'You\'ve won against the computer!';
+          return;
+        }
+        else {
+          this.instructions = 'You hit the computers ship!';
+        }
+      }
+      this.cpuStrike();
+    },
+
+    cpuStrike() {
+      let coord = this.possibleTargets[Math.floor(Math.random() * this.possibleTargets.length)];
+      this.removePossible(coord);
+      this.cpuStrikes.push(coord);
+      if (this.userCoords.includes(coord)) {
+        this.cpuHits += 1;
+        if (this.cpuHits === 5) {
+          this.instructions = 'You\'ve Lost against the computer!';
+        }
+        else {
+          this.instructions = 'The computer hit one of your ship!';
+        }
+      }
+    },
+
     /** Randomizing Cpu Coordinates Functionality */
     genCpuCoords() {
       this.userCoords.forEach(coord => {
@@ -106,6 +146,10 @@ export default {
     removeCoord(id) {
       this.availCoords = this.availCoords.filter(coord => coord !== id);
       this.possibleTargets = this.possibleTargets.filter(coord => coord !== id);
+    },
+
+    removePossible(id) {
+      this.possibleTargets = this.possibleTargets.filter(coord => coord !== id);
     }
   },
 
@@ -120,7 +164,7 @@ export default {
     },
 
     strikePicked() {
-      return this.strikeCoord !== 0;
+      return this.strikeCoord !== 0 && (this.userHits !== 5 && this.cpuHits !== 5);
     },
 
     /** Helper computed properties to reduce code in Ajax requests. */

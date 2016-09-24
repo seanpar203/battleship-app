@@ -30,7 +30,7 @@
             </tbody>
           </table>
           <button class='btn' v-bind:class="{'hidden': !coordsPicked}" @click='saveUserCoords()'>Save Coordinates</button>
-          <button class='btn' v-bind:class="{'hidden': !coordsPicked}">Strike!</button>
+          <button class='btn' v-bind:class="{'hidden': !strikePicked}" @click='userStrike()'>Strike!</button>
         </div>
       </div>
     </div>

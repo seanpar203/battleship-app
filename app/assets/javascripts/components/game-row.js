@@ -63,26 +63,28 @@ export default {
 
     /** Computed props for identifying ship */
     userShip() {
-      return this.userCoords.find(coord => coord === this.id);
+      return this.userCoords.includes(this.id);
     },
 
     /** Props for determining if ship was hit. */
     isUserHit() {
-      return this.cpuStrikes.find(coord => coord === this.id) &&
-             this.cpuCoords.find(coord => coord === this.id)
+      return this.cpuStrikes.includes(this.id) &&
+             this.userCoords.includes(this.id)
     },
 
     isCpuHit() {
-      return this.userStrikes.find(coord => coord === this.id) &&
-             this.userCoords.find(coord => coord === this.id)
+      return this.userStrikes.includes(this.id) &&
+             this.cpuCoords.includes(this.id)
     },
 
+    /** Miss functionality */
     miss() {
       return (this.userStrikes.includes(this.id) || this.cpuStrikes.includes(this.id)) &&
              (!this.userCoords.includes(this.id) && !this.cpuCoords.includes(this.id))
     },
 
 
+    /** Striking Coord prop */
     isStrikeCoord() {
       return this.id === this.strikeCoord;
     },
