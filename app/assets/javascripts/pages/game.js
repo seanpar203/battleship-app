@@ -32,8 +32,8 @@ export default {
       availCoords: allCoords,
 
       // Coordinate related data.
-      cpuCoords: [],
-      userCoords: [],
+      cpuCoords: [3],
+      userCoords: [2],
 
       // Coordinate saved state.
       cpuCoordsSaved: false,
@@ -41,8 +41,8 @@ export default {
 
       // Strike related data.
       strikeCoord: 0,
-      userStrikes: [],
-      cpuStrikes: [],
+      userStrikes: [5],
+      cpuStrikes: [17],
 
       // Array of hits.
       userHits:[],

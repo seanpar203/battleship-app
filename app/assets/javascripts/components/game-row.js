@@ -78,8 +78,10 @@ export default {
     },
 
     miss() {
-      return !this.userShip && !this.cpuShip
+      return (this.userStrikes.includes(this.id) || this.cpuStrikes.includes(this.id)) &&
+             (!this.userCoords.includes(this.id) && !this.cpuCoords.includes(this.id))
     },
+
 
     isStrikeCoord() {
       return this.id === this.strikeCoord;
@@ -91,6 +93,7 @@ export default {
         'strike': this.isStrikeCoord,
         'cpu ship hit': this.isCpuHit,
         'user ship hit': this.isUserHit,
+        'miss': this.miss,
       }
     }
   }
