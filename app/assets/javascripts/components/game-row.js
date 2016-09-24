@@ -12,6 +12,8 @@ export default {
     'strikeCoord',
     'userStrikes',
     'cpuStrikes',
+    'userHits',
+    'cpuHits',
     'coordsSaved'
   ],
 
@@ -66,11 +68,13 @@ export default {
 
     /** Props for determining if ship was hit. */
     isUserHit() {
-      return this.cpuStrikes.find(coord => coord === this.id)
+      return this.cpuStrikes.find(coord => coord === this.id) &&
+             this.cpuCoords.find(coord => coord === this.id)
     },
 
     isCpuHit() {
-      return this.userStrikes.find(coord => coord === this.id)
+      return this.userStrikes.find(coord => coord === this.id) &&
+             this.userCoords.find(coord => coord === this.id)
     },
 
     miss() {
