@@ -9,10 +9,21 @@ export default {
   ],
 
   template: require('../templates/navigation.html'),
+
+  methods: {
+    quitGame() {
+
+    }
+  },
+
   computed: {
 
     activeGame() {
       return this.gameId !== '';
+    },
+
+    returnToGame() {
+      return this.activeGame && this.view !== 'game-view';
     }
   }
 }

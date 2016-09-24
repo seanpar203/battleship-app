@@ -3,8 +3,9 @@
     <div class='row'>
       <div class='col-xs-12'>
         <ul>
-          <li @click="view = 'home-view' ">Home</li>
+          <li @click="view = 'home-view'">Home</li>
           <li @click="view = 'board-view'">Leader board</li>
+          <li @click="view = 'game-view'" v-show='returnToGame'>Back to game.</li>
           <li v-show='activeGame'>Quit Game</li>
         </ul>
       </div>
