@@ -20,17 +20,8 @@ let rows = [
   [21, 22, 23, 24, 25],
 ];
 
-export default {
-  props: [
-    'view',
-    'userName',
-    'gameId'
-  ],
-  template: require('../templates/game.html'),
-  components: {GameRow},
-
-  data() {
-    return {
+function initialState() {
+  return {
       // Boolean value of user win status.
       won: false,
 
@@ -61,6 +52,19 @@ export default {
       // Text to show above board.
       instructions: 'Select 5 ship locations.'
     }
+}
+
+export default {
+  props: [
+    'view',
+    'userName',
+    'gameId'
+  ],
+  template: require('../templates/game.html'),
+  components: {GameRow},
+
+  data() {
+    return initialState();
   },
 
   methods: {
