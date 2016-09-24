@@ -214,14 +214,25 @@ header {
   table {
     > caption {
       color: $radar-green;
-      font-size: 18px;
+      font-size: 24px;
+      margin-bottom: 15px;
     }
 
     thead {
       > tr {
         > th {
+          font-size: 18px;
           color: $metalic-gray;
           border-color: $radar-green;
+        }
+      }
+    }
+
+    tbody {
+      > tr {
+        > td {
+          color: $radar-green;
+          font-size: 18px;
         }
       }
     }
