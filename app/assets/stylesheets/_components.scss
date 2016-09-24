@@ -231,6 +231,7 @@ header {
     tbody {
       > tr {
         > td {
+          border-color: $metalic-gray;
           color: $radar-green;
           font-size: 18px;
         }

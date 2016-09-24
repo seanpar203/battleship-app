@@ -3,6 +3,16 @@
  */
 
 export default {
-  props:    ['view'],
-  template: require('../templates/navigation.html')
+  props: [
+    'view',
+    'gameId'
+  ],
+
+  template: require('../templates/navigation.html'),
+  computed: {
+
+    activeGame() {
+      return this.gameId !== '';
+    }
+  }
 }

@@ -5,7 +5,7 @@
         <ul>
           <li @click="view = 'home-view' ">Home</li>
           <li @click="view = 'board-view'">Leader board</li>
-          <li>Quit Game</li>
+          <li v-show='activeGame'>Quit Game</li>
         </ul>
       </div>
     </div>
