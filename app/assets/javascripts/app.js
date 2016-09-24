@@ -2,6 +2,7 @@ import Vue from 'vue';
 import 'babel-polyfill';
 import HomeView from './pages/index';
 import GameView from './pages/game';
+import BoardView from './pages/leader-board'
 import Navigation from './components/navigation';
 import attachFastClick from 'fastclick';
 
@@ -9,6 +10,7 @@ import attachFastClick from 'fastclick';
 const components = {
   HomeView,
   GameView,
+  BoardView,
   Navigation
 };
 

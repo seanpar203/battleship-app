@@ -209,3 +209,21 @@ header {
     height: 90px !important;
   }
 }
+
+.leader-board {
+  table {
+    > caption {
+      color: $radar-green;
+      font-size: 18px;
+    }
+
+    thead {
+      > tr {
+        > th {
+          color: $metalic-gray;
+          border-color: $radar-green;
+        }
+      }
+    }
+  }
+}
