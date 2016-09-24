@@ -58,16 +58,19 @@ export default {
   },
 
   computed: {
+
+    /** Computed props for identifying ship */
     userShip() {
       return this.userCoords.find(coord => coord === this.id);
     },
 
-    cpuShip() {
-      return this.cpuCoords.find(coord => coord === this.id);
-    },
-
+    /** Props for determining if ship was hit. */
     isUserHit() {
       return this.cpuStrikes.find(coord => coord === this.id)
+    },
+
+    isCpuHit() {
+      return this.userStrikes.find(coord => coord === this.id)
     },
 
     miss() {
@@ -80,9 +83,10 @@ export default {
 
     coordClasses() {
       return {
-        'ship': this.userShip,
+        'user ship': this.userShip,
         'strike': this.isStrikeCoord,
-        'ship hit': this.isUserHit,
+        'cpu ship hit': this.isCpuHit,
+        'user ship hit': this.isUserHit,
       }
     }
   }
