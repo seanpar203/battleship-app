@@ -68,7 +68,7 @@ export default {
     /** Save User Coordinates. */
     saveUserCoords() {
       $http
-        .post(`/game/${this.gameId}/coords`, this.getUserCoords)
+        .put(`/game/${this.gameId}/coords`, this.getUserCoords)
         .then(this.saveUserCoordsSuccess)
         .catch(this.saveUserCoordsError)
     },
@@ -86,7 +86,7 @@ export default {
 
     saveCpuCoords() {
       $http
-        .post(`/game/${this.gameId}/coords`, this.getCpuCoords)
+        .put(`/game/${this.gameId}/coords`, this.getCpuCoords)
         .then(this.saveCpuCoordsSuccess)
         .catch(this.saveCpuCoordsError)
     },
