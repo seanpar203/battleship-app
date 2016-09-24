@@ -125,6 +125,7 @@ export default {
         if (this.userHits === 5) {
           this.won = true;
           this.instructions = 'You\'ve won against the computer!';
+          this.saveGameResults();
           return;
         }
         else {
@@ -204,7 +205,7 @@ export default {
 
     getGameResults() {
       return {
-        user_name: this.user_name,
+        user_name: this.userName,
         won: this.won
       }
     }

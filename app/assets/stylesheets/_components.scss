@@ -186,13 +186,13 @@ header {
   button {
     display: block;
     color: #000;
-    width: 150px;
-    height: 35px;
+    padding: 10px 30px;
     margin: 0 auto;
     transform: translateY(-50%);
     background-color: $radar-green;
     border: 1px solid $radar-green;
     font-weight: bold;
+    font-size: 18px;
     margin-top: 75px;
 
     &:hover {
