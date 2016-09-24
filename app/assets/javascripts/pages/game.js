@@ -109,7 +109,7 @@ export default {
     },
 
     saveGameResultsSuccess(res) {
-      console.log(res);
+      this.gameId = '';
     },
     saveSameResultsError(err) {
       console.log(err)
@@ -118,21 +118,25 @@ export default {
     /** Striking Functionality */
 
     userStrike() {
-      this.userStrikes.push(this.strikeCoord);
-      this.removePossible(this.strikeCoord);
-      if (this.cpuCoords.includes(this.strikeCoord)) {
-        this.userHits += 1;
-        if (this.userHits === 5) {
-          this.won = true;
-          this.instructions = 'You\'ve won against the computer!';
-          this.saveGameResults();
-          return;
+      if (!this.userStrikes.includes(this.strikeCoord)) {
+        this.userStrikes.push(this.strikeCoord);
+        this.removePossible(this.strikeCoord);
+        if (this.cpuCoords.includes(this.strikeCoord)) {
+          this.userHits += 1;
+          if (this.userHits === 5) {
+            this.won = true;
+            this.instructions = 'You\'ve won against the computer!';
+            this.saveGameResults();
+            return;
+          }
+          else {
+            this.instructions = 'You hit the computers ship!';
+          }
         }
-        else {
-          this.instructions = 'You hit the computers ship!';
-        }
+        this.cpuStrike();
+      } else {
+        this.instructions = 'Trying to hit the same target are we..?';
       }
-      this.cpuStrike();
     },
 
     cpuStrike() {
