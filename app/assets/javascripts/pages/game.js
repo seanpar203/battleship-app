@@ -65,7 +65,7 @@ export default {
 
   methods: {
 
-    /** Save User Coordinates Functionality. */
+    /** Save User Coordinates. */
     saveUserCoords() {
       $http
         .post(`/game/${this.gameId}/coords`, this.getUserCoords)
@@ -82,20 +82,37 @@ export default {
       console.log(err);
     },
 
-    /** Save Cpu Coordinates Functionality. */
+    /** Save Cpu Coordinates. */
 
     saveCpuCoords() {
       $http
         .post(`/game/${this.gameId}/coords`, this.getCpuCoords)
         .then(this.saveCpuCoordsSuccess)
-        .catch(err => {
-          console.log(err);
-        })
+        .catch(this.saveCpuCoordsError)
     },
 
     saveCpuCoordsSuccess(res) {
       this.cpuCoordsSaved = true;
       this.instructions = 'Select a coordinate to attack the CPU.'
+    },
+
+    saveCpuCoordsError(err) {
+      console.log(err)
+    },
+
+    /** Save Game Results . */
+    saveGameResults() {
+      $http
+        .post(`/game/${this.gameId}/results`, this.getGameResults)
+        .then(this.saveGameResultsSuccess)
+        .catch(this.saveSameResultsError)
+    },
+
+    saveGameResultsSuccess(res) {
+      console.log(res);
+    },
+    saveSameResultsError(err) {
+      console.log(err)
     },
 
     /** Striking Functionality */
@@ -106,6 +123,7 @@ export default {
       if (this.cpuCoords.includes(this.strikeCoord)) {
         this.userHits += 1;
         if (this.userHits === 5) {
+          this.won = true;
           this.instructions = 'You\'ve won against the computer!';
           return;
         }
@@ -182,8 +200,14 @@ export default {
         coords: this.cpuCoords,
         player: 'cpu_coords'
       }
-    }
+    },
 
+    getGameResults() {
+      return {
+        user_name: this.user_name,
+        won: this.won
+      }
+    }
   },
 
   watch: {
