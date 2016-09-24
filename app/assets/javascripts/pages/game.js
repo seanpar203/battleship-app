@@ -103,7 +103,7 @@ export default {
     /** Save Game Results . */
     saveGameResults() {
       $http
-        .post(`/game/${this.gameId}/results`, this.getGameResults)
+        .post(`/game/${this.gameId}/results`, this.getUserWon)
         .then(this.saveGameResultsSuccess)
         .catch(this.saveSameResultsError)
     },
@@ -207,10 +207,9 @@ export default {
       }
     },
 
-    getGameResults() {
+    getUserWon() {
       return {
         user_name: this.userName,
-        won: this.won
       }
     }
   },
