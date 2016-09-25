@@ -8,13 +8,12 @@ export default {
     'cpuCoords',
     'userCoords',
     'availCoords',
-    'savedCoords',
     'strikeCoord',
     'userStrikes',
+    'coordsSaved',
     'cpuStrikes',
     'userHits',
     'cpuHits',
-    'coordsSaved'
   ],
 
   template: require('../templates/game-row.html'),
@@ -25,7 +24,7 @@ export default {
     selectCoord(id) {
 
       // If User & CPU Coords haven't been saved.
-      if (!this.savedCoords) {
+      if (!this.coordsSaved) {
         if (!this.userShip) {
           this.userCoords.length != 5 ? this.addUserCord(id) : '';
         }
@@ -35,7 +34,7 @@ export default {
       }
 
       // If User & CPU Coords have been saved.
-      if (this.coordsSaved) {
+      else {
         this.strikeCoord = id;
       }
     },

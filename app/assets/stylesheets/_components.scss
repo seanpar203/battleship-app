@@ -230,6 +230,13 @@ header {
 
     tbody {
       > tr {
+        &.currentUser {
+          background-color: $metalic-gray;
+
+          td {
+            color: #000;
+          }
+        }
         > td {
           border-color: $metalic-gray;
           color: $radar-green;

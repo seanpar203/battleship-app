@@ -2,6 +2,6 @@
  * Created by Admin on 24/09/2016.
  */
 export default {
-  props: ['leaderBoard', 'userName'],
+  props: ['userName', 'player'],
   template: require('../templates/player.html')
 }

@@ -228,6 +228,12 @@ export default {
           this.instructions = `Select ${5 - val.length } ship locations.`;
         }
       }
+    },
+
+    'gameId': function (val, oldVal) {
+      if (val === '') {
+        this.$data = initialState();
+      }
     }
   }
 }

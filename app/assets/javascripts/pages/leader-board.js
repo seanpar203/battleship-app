@@ -2,12 +2,12 @@
  * Created by Admin on 24/09/2016.
  */
 import $http from '../services/http';
-import players from '../components/player';
+import PlayerRow from '../components/player';
 
 export default {
   props: ['userName'],
   template: require('../templates/leader-board.html'),
-  components: {players},
+  components: {PlayerRow},
 
   data() {
     return {
