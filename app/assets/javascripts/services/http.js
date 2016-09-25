@@ -4,5 +4,6 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: process.env.BASE_PATH
+  baseURL: process.env.BASE_PATH,
+  headers: {'Access-Control-Allow-Origin': '*'}
 });

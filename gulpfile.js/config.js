@@ -101,6 +101,7 @@ module.exports = {
     src: [
       src + '/**/*.html',
       src + '/**/*.php',
+      src + '/**/composer.json',
       '!' + src + '/**/_*.html',
       '!' + src + '/templates/**/*'
     ],
