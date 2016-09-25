@@ -219,6 +219,10 @@ header {
 
       &.miss {
         background: url('miss.png') no-repeat center center;
+
+        &.cpu {
+          background: url('cpu-miss.png') no-repeat center center;
+        }
       }
 
       &.strike {
