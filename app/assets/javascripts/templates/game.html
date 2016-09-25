@@ -1,4 +1,11 @@
 <!-- battleship board -->
+<div id='game-modal'>
+  <h3>{{modalText}}</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque aut consectetur corporis debitis deserunt, dignissimos dolores expedita
+     harum id, illum inventore iure minus nesciunt provident quos sint tempore vel!
+  </p>
+</div>
+
 <div class='game-page'>
   <div class='container'>
     <div class='row'>
@@ -10,22 +17,22 @@
           <table class='table'>
             <tbody>
 
-              <!-- battleship rows-->
-              <tr v-for='row in rows'>
-                <td v-for='id in row'>
-                  <game-row :id='id'
-                            :user-coords.sync='userCoords'
-                            :avail-coords.sync='availCoords'
-                            :coords-saved.sync='coordsSaved'
-                            :strike-coord.sync='strikeCoord'
-                            :user-strikes.sync='userStrikes'
-                            :cpu-strikes.sync='cpuStrikes'
-                            :user-hits.sync='userHits'
-                            :cpu-hits.sync='cpuHits'
-                            :cpu-coords.sync='cpuCoords'>
-                  </game-row>
-                </td>
-              </tr>
+            <!-- battleship rows-->
+            <tr v-for='row in rows'>
+              <td v-for='id in row'>
+                <game-row :id='id'
+                          :user-coords.sync='userCoords'
+                          :avail-coords.sync='availCoords'
+                          :coords-saved.sync='coordsSaved'
+                          :strike-coord.sync='strikeCoord'
+                          :user-strikes.sync='userStrikes'
+                          :cpu-strikes.sync='cpuStrikes'
+                          :user-hits.sync='userHits'
+                          :cpu-hits.sync='cpuHits'
+                          :cpu-coords.sync='cpuCoords'>
+                </game-row>
+              </td>
+            </tr>
             </tbody>
           </table>
           <button class='btn' v-bind:class="{'hidden': !coordsPicked}" @click='saveUserCoords()'>Save Coordinates</button>

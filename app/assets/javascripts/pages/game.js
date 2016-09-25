@@ -22,36 +22,38 @@ let rows = [
 
 function initialState() {
   return {
-      // Boolean value of user win status.
-      won: false,
+    // Boolean value of user win/game status.
+    won: false,
+    gameOver: false,
 
-      // Board related data.
-      rows: rows,
-      availCoords: allCoords,
+    // Board related data.
+    rows: rows,
+    availCoords: allCoords,
 
-      // Coordinate related data.
-      cpuCoords: [],
-      userCoords: [],
+    // Coordinate related data.
+    cpuCoords: [],
+    userCoords: [],
 
-      // Coordinate saved state.
-      cpuCoordsSaved: false,
-      userCoordsSaved: false,
+    // Coordinate saved state.
+    cpuCoordsSaved: false,
+    userCoordsSaved: false,
 
-      // Strike related data.
-      strikeCoord: 0,
-      userStrikes: [],
-      cpuStrikes: [],
+    // Strike related data.
+    strikeCoord: 0,
+    userStrikes: [],
+    cpuStrikes: [],
 
-      // Array of hits.
-      userHits: 0,
-      cpuHits: 0,
+    // Array of hits.
+    userHits: 0,
+    cpuHits: 0,
 
-      // Posibility array for AI.
-      possibleTargets: allCoords,
+    // Posibility array for AI.
+    possibleTargets: allCoords,
 
-      // Text to show above board.
-      instructions: 'Select 5 ship locations.'
-    }
+    // Text to show above board & modal.
+    modalText: 'You lost against the cpu.',
+    instructions: 'Select 5 ship locations.'
+  }
 }
 
 export default {
