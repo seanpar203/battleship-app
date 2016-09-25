@@ -109,7 +109,7 @@ export default {
     /** Save Game Results . */
     saveGameResults() {
       $http
-        .post(`/game/${this.gameId}/results`, this.getUserWon)
+        .put(`/game/${this.gameId}/won`, {user_name: this.userName})
         .then(this.saveGameResultsSuccess)
         .catch(this.saveSameResultsError)
     },
@@ -121,6 +121,26 @@ export default {
       console.log(err)
     },
 
+
+    playAgain() {
+      $http
+        .post('/game', {user_name: this.userName})
+        .then(this.playAgainSuccess)
+        .catch(this.playAgainError)
+    },
+
+    // Set data after success.
+    playAgainSuccess(res) {
+      this.$data = initialState();
+      this.gameId = res.data.game_id;
+    },
+
+    // Console err.
+    playAgainError(err) {
+      console.log(err);
+    },
+
+
     /** Striking Functionality */
 
     userStrike() {
@@ -131,7 +151,8 @@ export default {
           this.userHits += 1;
           if (this.userHits === 5) {
             this.won = true;
-            this.instructions = 'You\'ve won against the computer!';
+            this.gameOver = true;
+            this.modalText = 'You\'ve beat the computer!';
             this.saveGameResults();
             return;
           }
@@ -140,7 +161,8 @@ export default {
           }
         }
         this.cpuStrike();
-      } else {
+      }
+      else {
         this.instructions = 'Trying to hit the same target are we..?';
       }
     },
@@ -152,7 +174,8 @@ export default {
       if (this.userCoords.includes(coord)) {
         this.cpuHits += 1;
         if (this.cpuHits === 5) {
-          this.instructions = 'You\'ve Lost against the computer!';
+          this.gameOver = true;
+          this.modalText = 'You\'ve Lost against the computer!';
         }
         else {
           this.instructions = 'The computer hit one of your ship!';
@@ -210,12 +233,6 @@ export default {
         user_name: this.userName,
         coords: this.cpuCoords,
         player: 'cpu_coords'
-      }
-    },
-
-    getUserWon() {
-      return {
-        user_name: this.userName,
       }
     }
   },
