@@ -260,6 +260,10 @@ header {
 }
 
 .leader-board {
+  a {
+    cursor: pointer;
+    color: $metalic-gray;
+  }
   table {
     > caption {
       color: $radar-green;
