@@ -76,10 +76,12 @@ export default {
              this.cpuCoords.includes(this.id)
     },
 
-    /** Miss functionality */
-    miss() {
-      return (this.userStrikes.includes(this.id) || this.cpuStrikes.includes(this.id)) &&
-             (!this.userCoords.includes(this.id) && !this.cpuCoords.includes(this.id))
+    userMiss() {
+      return this.userStrikes.includes(this.id) && !this.cpuCoords.includes(this.id)
+    },
+
+    cpuMiss() {
+      return this.cpuStrikes.includes(this.id) && !this.userCoords.includes(this.id)
     },
 
 
@@ -94,7 +96,8 @@ export default {
         'strike': this.isStrikeCoord,
         'cpu ship hit': this.isCpuHit,
         'user ship hit': this.isUserHit,
-        'miss': this.miss,
+        'user miss': this.userMiss,
+        'cpu miss': this.cpuMiss
       }
     }
   }
