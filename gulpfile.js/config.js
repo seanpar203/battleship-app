@@ -7,213 +7,214 @@ var dest = './public';
 
 module.exports = {
 
-	browserify: {
+  browserify: {
 
-		bundleConfigs: [
-			{
-				entries: src + '/assets/javascripts/app.js',
-				dest: dest + '/assets',
-				outputName: 'app.js',
-			},
-		],
+    bundleConfigs: [
+      {
+        entries: src + '/assets/javascripts/app.js',
+        dest: dest + '/assets',
+        outputName: 'app.js',
+      },
+    ],
 
-	},
+  },
 
-	browserSync: {
+  browserSync: {
 
-		server: {
-			baseDir: dest,
-			middleware: [
-				modRewrite([
-					'^/assets/(.+)--([\\.a-z0-9/]+)(\\.[a-z0-9]+)$ /assets/$1$3 [L]'
-				]),
-			],
-		},
+    server: {
+      baseDir: dest,
+      middleware: [
+        modRewrite([
+          '^/assets/(.+)--([\\.a-z0-9/]+)(\\.[a-z0-9]+)$ /assets/$1$3 [L]'
+        ]),
+      ],
+    },
 
-		snippetOptions: {
-			blacklist: ['**/*?nosync'],
-		},
+    snippetOptions: {
+      blacklist: ['**/*?nosync'],
+    },
 
-	},
+  },
 
-	clean: {
+  clean: {
 
-		src: dest,
+    src: dest,
 
-	},
+  },
 
-	css: {
+  css: {
 
-		src: [
-			src + '/assets/stylesheets/**/*.scss',
-			'!' + src + '/assets/stylesheets/**/_*.scss'
-		],
-		dest: dest + '/assets',
-		watch: src + '/assets/stylesheets/*.scss',
+    src: [
+      src + '/assets/stylesheets/**/*.scss',
+      '!' + src + '/assets/stylesheets/**/_*.scss'
+    ],
+    dest: dest + '/assets',
+    watch: src + '/assets/stylesheets/*.scss',
 
-		sass: {
-			style: 'nested',
-			precision: 3,
-			includePaths: [].concat.apply([], [
-				'node_modules/bootstrap-sass/assets/stylesheets'
-			]),
-		},
+    sass: {
+      style: 'nested',
+      precision: 3,
+      includePaths: [].concat.apply([], [
+        'node_modules/bootstrap-sass/assets/stylesheets'
+      ]),
+    },
 
-		minify: {
-			discardComments: {removeAll: true},
-			discardEmpty: true,
-		},
+    minify: {
+      discardComments: {removeAll: true},
+      discardEmpty: true,
+    },
 
-		autoprefixer: {
-			browsers: [
-				'last 5 versions',
-				'Explorer >= 8'
-			],
-		},
+    autoprefixer: {
+      browsers: [
+        'last 5 versions',
+        'Explorer >= 8'
+      ],
+    },
 
-		production: {
+    production: {
 
-			src: dest + '/assets/*.css',
-			dest: dest + '/assets',
+      src: dest + '/assets/*.css',
+      dest: dest + '/assets',
 
-		},
+    },
 
-	},
+  },
 
-	extras: {
+  extras: {
 
-		mapping: [
-			{
-				src: [src + '/\.htaccess'],
-				dest: dest
-			},
-			{
-				src: src + '/assets/fonts/**/*.{woff,ttf,eot}',
-				dest: dest + '/assets',
-			}
-		],
+    mapping: [
+      {
+        src: [src + '/\.htaccess'],
+        dest: dest
+      },
+      {
+        src: src + '/assets/fonts/**/*.{woff,ttf,eot}',
+        dest: dest + '/assets',
+      }
+    ],
 
-	},
+  },
 
-	html: {
+  html: {
 
-		watch: src + '/**/*.html',
-		src: [
-			src + '/**/*.html',
-			'!' + src + '/**/_*.html',
-			'!' + src + '/templates/**/*'
-		],
-		dest: dest,
+    watch: src + '/**/*.html',
+    src: [
+      src + '/**/*.html',
+      src + '/**/*.php',
+      '!' + src + '/**/_*.html',
+      '!' + src + '/templates/**/*'
+    ],
+    dest: dest,
 
-		htmlmin: {
-			collapseWhitespace: true,
-			customAttrSurround: [
-				[
-					/@/,
-					/(?:)/
-				]
-			], // vue.js @ attributes
-		},
+    htmlmin: {
+      collapseWhitespace: true,
+      customAttrSurround: [
+        [
+          /@/,
+          /(?:)/
+        ]
+      ], // vue.js @ attributes
+    },
 
-		production: {
+    production: {
 
-			src: dest + '/*.html',
-			dest: dest,
+      src: dest + '/*.html',
+      dest: dest,
 
-		},
+    },
 
-	},
+  },
 
-	images: {
+  images: {
 
-		src: src + '/assets/images/**/*',
-		dest: dest + '/assets',
+    src: src + '/assets/images/**/*',
+    dest: dest + '/assets',
 
-		imagemin: {
-			optimizationLevel: 7,
-			progressive: true,
-			interlaced: true,
-			multipass: true,
-		},
+    imagemin: {
+      optimizationLevel: 7,
+      progressive: true,
+      interlaced: true,
+      multipass: true,
+    },
 
-	},
+  },
 
-	js: {
+  js: {
 
-		src: [src + '/assets/javascripts/**/*.js'],
-		dest: dest + '/assets',
+    src: [src + '/assets/javascripts/**/*.js'],
+    dest: dest + '/assets',
 
-		eslint: {
-			parser: 'babel-eslint',
-			ecmaFeatures: {
-				templateStrings: true,
-				modules: true,
-				destructuring: true,
-				restParams: true,
-				arrowFunctions: true,
-				classes: true,
-				defaultParams: true,
-			},
-		},
+    eslint: {
+      parser: 'babel-eslint',
+      ecmaFeatures: {
+        templateStrings: true,
+        modules: true,
+        destructuring: true,
+        restParams: true,
+        arrowFunctions: true,
+        classes: true,
+        defaultParams: true,
+      },
+    },
 
-		test: {
+    test: {
 
-			karma: {
+      karma: {
 
-				configFile: process.cwd() + '/karma.conf.js',
-				singleRun: true,
+        configFile: process.cwd() + '/karma.conf.js',
+        singleRun: true,
 
-			},
+      },
 
-			server: {
-				root: process.cwd() + '/public',
-				port: 8888,
-				config: {
-					'index': [
-						'index.html',
-						'index.htm'
-					],
-				},
-			},
+      server: {
+        root: process.cwd() + '/public',
+        port: 8888,
+        config: {
+          'index': [
+            'index.html',
+            'index.htm'
+          ],
+        },
+      },
 
-			nightwatch: {
+      nightwatch: {
 
-				config: process.cwd() + '/nightwatch.conf.js',
-				env: 'default',
+        config: process.cwd() + '/nightwatch.conf.js',
+        env: 'default',
 
-			},
+      },
 
-		},
+    },
 
-		production: {
+    production: {
 
-			src: dest + '/assets/*.js',
-			dest: dest + '/assets',
+      src: dest + '/assets/*.js',
+      dest: dest + '/assets',
 
-		},
+    },
 
-	},
+  },
 
-	rev: {
+  rev: {
 
-		src: [dest + '/**/*'],
-		dest: dest,
+    src: [dest + '/**/*'],
+    dest: dest,
 
-		options: {
-			dontRenameFile: [
-				/\/\..*/,
-				'.html'
-			],
-			dontUpdateReference: ['.html'],
-			prefix: 'https://cdn.example.com/',
-			debug: true,
-			transformFilename(file, hash) {
-				var ext = path.extname(file.path);
+    options: {
+      dontRenameFile: [
+        /\/\..*/,
+        '.html'
+      ],
+      dontUpdateReference: ['.html'],
+      prefix: 'https://cdn.example.com/',
+      debug: true,
+      transformFilename(file, hash) {
+        var ext = path.extname(file.path);
 
-				return path.basename(file.path, ext) + '--' + hash.substr(0, 5) + ext;
-			},
-		},
+        return path.basename(file.path, ext) + '--' + hash.substr(0, 5) + ext;
+      },
+    },
 
-	},
+  },
 
 };
