@@ -115,7 +115,7 @@ export default {
     },
 
     saveGameResultsSuccess(res) {
-      this.gameId = '';
+      console.log(res);
     },
     saveSameResultsError(err) {
       console.log(err)

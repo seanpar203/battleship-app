@@ -16,12 +16,21 @@ export default {
   },
 
   activate(done) {
-    $http
-      .get('/leaderboard')
-      .then(res => {
-        this.leaderBoard = res.data.board;
-        done();
-      })
-      .catch(err => console.log(err))
-  }
+    this.fetchLeaderBoard(done);
+  },
+
+  methods: {
+
+    fetchLeaderBoard(cb) {
+      $http
+        .get('/leaderboard')
+        .then(res => {
+          this.leaderBoard = res.data.board;
+          if (cb !== undefined) {
+            cb();
+          }
+        })
+        .catch(err => console.log(err))
+    }
+  },
 }
