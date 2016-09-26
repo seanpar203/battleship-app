@@ -146,8 +146,8 @@ export default {
     userStrike() {
       if (
         !this.userStrikes.includes(this.strikeCoord) &&
-        !this.userCoords.includes(this.strikeCoord) &&
-        !this.cpuCoords.includes(this.strikeCoord)
+        !this.cpuStrikes.includes(this.strikeCoord) &&
+        !this.userCoords.includes(this.strikeCoord)
       ) {
         this.userStrikes.push(this.strikeCoord);
         this.removePossible(this.strikeCoord);
