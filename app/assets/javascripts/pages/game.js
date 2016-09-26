@@ -144,7 +144,11 @@ export default {
     /** Striking Functionality */
 
     userStrike() {
-      if (!this.userStrikes.includes(this.strikeCoord)) {
+      if (
+        !this.userStrikes.includes(this.strikeCoord) &&
+        !this.userCoords.includes(this.strikeCoord) &&
+        !this.cpuCoords.includes(this.strikeCoord)
+      ) {
         this.userStrikes.push(this.strikeCoord);
         this.removePossible(this.strikeCoord);
         if (this.cpuCoords.includes(this.strikeCoord)) {
@@ -163,8 +167,10 @@ export default {
         this.cpuStrike();
       }
       else {
-        this.instructions = 'Trying to hit the same target are we..?';
-      }
+        (this.userStrikes.includes(this.strikeCoord) || this.cpuStrikes.includes(this.strikeCoord))
+          ? this.instructions = 'Trying to hit the same target are we..?'
+          : this.instructions = 'Self mutilation isn\'t cool.';
+        }
     },
 
     cpuStrike() {
