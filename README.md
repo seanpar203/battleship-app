@@ -1,2 +1,2 @@
 # Battleship App
-Front end for the battleship web app.
+Front end for the [Battleship app](http://battleship-app-prod.herokuapp.com/).
